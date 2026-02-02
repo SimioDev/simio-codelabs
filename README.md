@@ -1,31 +1,34 @@
 # Simio CodeLabs - Sitio Web Profesional
 
-Sitio web profesional desarrollado con Astro + React + Tailwind CSS + GSAP para Simio CodeLabs (Nestor Cabrera).
+Sitio web profesional desarrollado con Astro + React + Tailwind CSS para Simio CodeLabs.
 
 ## 🚀 Stack Tecnológico
 
 - **Framework:** Astro 5.17
 - **UI Framework:** React 19
 - **Estilos:** Tailwind CSS 3.4 + CSS Variables
-- **Animaciones:** GSAP 3.14
+- **Animaciones:** GSAP 3.14 + Framer Motion
+- **3D:** Three.js + React Three Fiber
 - **CMS:** Decap CMS (Git-based)
-- **i18n:** Sistema bilingüe ES/EN integrado
+- **i18n:** Sistema bilingüe ES/EN
 - **SEO:** astro-seo + Schema.org
-- **Componentes UI:** Shadcn/ui + Aceternity UI (custom)
 
 ## 📦 Instalación
 
 ```bash
-# Instalar dependencias (usando pnpm)
+# Instalar dependencias
 pnpm install
 
-# Iniciar servidor de desarrollo
+# Desarrollo
 pnpm dev
+
+# Desarrollo con CMS local
+pnpm dev:cms
 
 # Construir para producción
 pnpm build
 
-# Vista previa del build
+# Vista previa
 pnpm preview
 ```
 
@@ -33,160 +36,61 @@ pnpm preview
 
 ```
 src/
-├── assets/              # Imágenes, SVGs
 ├── components/
-│   ├── ui/             # Componentes UI base (Button, Card, etc.)
-│   ├── sections/       # Secciones de páginas
-│   ├── animations/     # Wrappers GSAP
-│   └── shared/         # Header, Footer, Nav
-├── content/            # Content Collections (Blog + Portfolio)
-│   ├── config.ts       # Schemas de contenido
+│   ├── ui/              # Componentes UI (Button, Card, etc.)
+│   ├── animations/      # Wrappers de animación
+│   └── shared/          # Header, Footer
+├── content/             # Content Collections
 │   ├── blog/
-│   │   ├── es/        # Posts en español
-│   │   └── en/        # Posts en inglés
+│   │   ├── es/
+│   │   └── en/
 │   └── portfolio/
-│       ├── es/        # Proyectos en español
-│       └── en/        # Proyectos en inglés
+│       ├── es/
+│       └── en/
 ├── layouts/
-│   └── BaseLayout.astro       # Layout base con SEO
-├── locales/            # Traducciones i18n
-│   ├── es/            # Español
-│   └── en/            # Inglés
-├── pages/
-│   ├── index.astro            # Página principal (español)
-│   ├── portafolio/           # Portfolio (español)
-│   ├── blog/                 # Blog (español)
-│   └── en/                   # Versión inglés (futuro)
+│   └── BaseLayout.astro # Layout base con SEO
+├── locales/             # Traducciones i18n
+├── pages/               # Rutas del sitio
 ├── styles/
-│   └── globals.css           # Estilos base Tailwind
-└── utils/
-    ├── animations.ts         # Helpers GSAP
-    ├── seo.ts               # Meta tags, JSON-LD
-    ├── i18n.ts              # Helpers de traducción
-    └── cn.ts                # className utility
+│   └── globals.css      # Estilos globales
+└── utils/               # Utilidades (SEO, i18n, etc.)
 
 public/
-├── admin/                   # Decap CMS
-│   ├── config.yml
-│   └── index.html
-└── robots.txt
+├── admin/              # Decap CMS
+└── images/             # Assets estáticos
 ```
 
-## 🌐 Sistema i18n
+## 🌐 Internacionalización
 
-El sitio soporta español (ES) e inglés (EN):
+- **Español (default):** `/` → `/servicios/` → `/blog/`
+- **Inglés:** `/en/` → `/en/services/` → `/en/blog/`
 
-- **ES (default):** `/` → `/servicios/` → `/blog/`
-- **EN:** `/en/` → `/en/services/` → `/en/blog/`
-
-Archivos de traducción: `src/locales/{es,en}/*.json`
-
-## 📝 Content Collections
-
-### Blog Posts
-
-Posts en `src/content/blog/{es,en}/`:
-
-```markdown
----
-title: "Título del post"
-description: "Descripción breve"
-publishDate: 2026-01-15
-author: "Nestor Cabrera"
-image: "/images/blog/imagen.jpg"
-tags: ["tag1", "tag2"]
-lang: "es"
-draft: false
----
-
-Contenido en Markdown...
-```
-
-### Portfolio Items
-
-Proyectos en `src/content/portfolio/{es,en}/`:
-
-```markdown
----
-title: "Nombre del Proyecto"
-description: "Descripción del proyecto"
-client: "Cliente"
-industry: "Industria"
-technologies: ["React", "Node.js"]
-year: 2025
-image: "/images/portfolio/proyecto.jpg"
-metrics:
-  before: "Antes"
-  after: "Después"
-  improvement: "Mejora"
-lang: "es"
----
-
-Caso de estudio detallado...
-```
+Traducciones en `src/locales/{es,en}/*.json`
 
 ## 📊 CMS (Decap CMS)
 
-Acceso: `/admin/`
+### Configuración para Producción
 
-Requiere configurar Git Gateway o autenticación GitHub.
+1. Actualiza el repo en `public/admin/config.yml`:
+   ```yaml
+   backend:
+     repo: tu-usuario/tu-repo
+   ```
 
-## ✅ Estado del Proyecto
+2. Configura OAuth en GitHub:
+   - Crea una GitHub OAuth App
+   - Añade las credenciales en Vercel
 
-### ✅ Completado (FASE 1-6)
+3. Accede al CMS en: `https://tu-dominio.com/admin/`
 
-**Infraestructura:**
-- [x] Configuración base (Astro + React + Tailwind + GSAP)
-- [x] Sistema i18n configurado
-- [x] Content Collections (Blog + Portfolio)
-- [x] Decap CMS configurado
-- [x] BaseLayout con SEO completo + Header + Footer
-- [x] Estilos globales Tailwind
+### Desarrollo Local
 
-**Componentes UI:**
-- [x] Button, Card, Badge
-- [x] Input, Textarea, Label
-- [x] Header y Footer compartidos
-- [x] Language Switcher component
-- [x] Componente FadeIn (GSAP)
+```bash
+pnpm dev:cms
+```
 
-**Páginas (ES):**
-- [x] Página principal funcional (Hero, Problem, Services, Portfolio, Blog, CTA)
-- [x] Páginas de Blog (index + [slug])
-- [x] Páginas de Portfolio (index + [slug])
-- [x] Página de Servicios detallada
-- [x] Página Sobre Mí
-
-**Contenido:**
-- [x] 2 posts de blog (ES)
-- [x] 2 proyectos portfolio (ES)
-- [x] Traducciones ES/EN (common.json, home.json)
-
-**Utilidades:**
-- [x] animations.ts (GSAP helpers)
-- [x] i18n.ts, seo.ts, cn.ts
-
-### 🚧 Pendiente (FASE 7)
-
-- [ ] Versión completa en inglés (páginas /en/*)
-- [ ] Más contenido placeholder (1-2 posts + 1 proyecto más)
-- [ ] Animaciones GSAP avanzadas en Hero
-- [ ] Componentes de animación adicionales (ScrollTrigger, Timeline)
-- [ ] Sistema de formularios de contacto
-- [ ] Testing y optimización de performance
-- [ ] Deploy a producción (Vercel/Netlify)
-
-## 📝 Próximos Pasos
-
-1. Crear Header y Footer compartidos
-2. Implementar Language Switcher
-3. Crear página de Servicios
-4. Crear página Sobre Mí
-5. Implementar animaciones GSAP avanzadas
-6. Agregar más contenido placeholder
-7. Crear versión completa en inglés
-8. Testing y deploy
+Accede a `http://localhost:3000/admin/` (sin autenticación)
 
 ## 📄 Licencia
 
-© 2026 Simio CodeLabs (Nestor Cabrera) - Todos los derechos reservados
+© 2026 Simio CodeLabs - Todos los derechos reservados

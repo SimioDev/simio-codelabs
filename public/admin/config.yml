@@ -1,6 +1,10 @@
 backend:
-  name: git-gateway
-  branch: master
+  name: github
+  repo: SimioDev/simio-codelabs
+  branch: main
+
+# Modo local para desarrollo (descomenta para desarrollo local)
+# local_backend: true
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
@@ -20,6 +24,22 @@ collections:
       - { label: "Tags", name: "tags", widget: "list" }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Language", name: "lang", widget: "hidden", default: "es" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "blog-en"
+    label: "Blog (English)"
+    folder: "src/content/blog/en"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "publishDate", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", default: "Nestor Cabrera" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Language", name: "lang", widget: "hidden", default: "en" }
       - { label: "Body", name: "body", widget: "markdown" }
 
   - name: "portfolio-es"
@@ -45,4 +65,29 @@ collections:
           - { label: "After", name: "after", widget: "string" }
           - { label: "Improvement", name: "improvement", widget: "string" }
       - { label: "Language", name: "lang", widget: "hidden", default: "es" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "portfolio-en"
+    label: "Portfolio (English)"
+    folder: "src/content/portfolio/en"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Client", name: "client", widget: "string" }
+      - { label: "Industry", name: "industry", widget: "string" }
+      - { label: "Technologies", name: "technologies", widget: "list" }
+      - { label: "Year", name: "year", widget: "number" }
+      - { label: "Main Image", name: "image", widget: "image" }
+      - { label: "URL", name: "url", widget: "string", required: false }
+      - label: "Metrics"
+        name: "metrics"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Before", name: "before", widget: "string" }
+          - { label: "After", name: "after", widget: "string" }
+          - { label: "Improvement", name: "improvement", widget: "string" }
+      - { label: "Language", name: "lang", widget: "hidden", default: "en" }
       - { label: "Body", name: "body", widget: "markdown" }
