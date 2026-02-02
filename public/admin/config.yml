@@ -2,6 +2,8 @@ backend:
   name: github
   repo: SimioDev/simio-codelabs
   branch: main
+  base_url: https://simio-codelabs.vercel.app
+  auth_endpoint: /api/auth
 
 # Modo local para desarrollo (descomenta para desarrollo local)
 # local_backend: true
