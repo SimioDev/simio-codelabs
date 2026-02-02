@@ -1,12 +1,17 @@
 ---
-title: "Cómo automaticé el inventario de mi cliente en 2 semanas"
-description: "Case study de cómo transformamos 20 horas semanales de trabajo manual en Excel a un sistema automatizado. Lecciones aprendidas y ROI real."
+title: Cómo automaticé el inventario de mi cliente en 2 semanas
+description: Case study de cómo transformamos 20 horas semanales de trabajo
+  manual en Excel a un sistema automatizado. Lecciones aprendidas y ROI real.
 publishDate: 2026-01-22
-author: "Nestor Cabrera"
-image: "/images/blog/automatizar-inventario.jpg"
-tags: ["automatización", "caso de estudio", "python", "productividad"]
-lang: "es"
+author: Nestor Cabrera
+image: /images/uploads/1443413.png
+tags:
+  - automatización
+  - caso de estudio
+  - python
+  - productividad
 draft: false
+lang: es
 ---
 
 # Cómo automaticé el inventario de mi cliente en 2 semanas
