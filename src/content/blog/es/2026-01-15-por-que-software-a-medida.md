@@ -1,12 +1,18 @@
 ---
-title: "Por qué tu PYME necesita software a medida (y no una plantilla)"
-description: "Las soluciones genéricas prometen resolver todos tus problemas, pero terminan creando más. Descubre por qué el software a medida es la inversión que realmente escala tu negocio."
+title: Por qué tu PYME necesita software a medida
+description: Las soluciones genéricas prometen resolver todos tus problemas,
+  pero terminan creando más. Descubre por qué el software a medida es la
+  inversión que realmente escala tu negocio.
 publishDate: 2026-01-15
-author: "Nestor Cabrera"
-image: "/images/blog/software-a-medida.jpg"
-tags: ["software a medida", "automatización", "pymes", "negocio"]
-lang: "es"
+author: Nestor Cabrera
+image: /images/uploads/nosql_icon.png
+tags:
+  - software a medida
+  - automatización
+  - pymes
+  - negocio
 draft: false
+lang: es
 ---
 
 # Por qué tu PYME necesita software a medida (y no una plantilla)
