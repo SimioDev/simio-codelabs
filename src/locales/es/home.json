@@ -1,0 +1,69 @@
+{
+  "hero": {
+    "headline": "Tu negocio, optimizado con software a medida",
+    "subheadline": "Transformo procesos manuales en sistemas inteligentes que escalan tu operación. Sin plantillas, sin soluciones genéricas. Solo código que resuelve tus problemas específicos.",
+    "cta": "🚀 Agenda Diagnóstico Gratuito"
+  },
+  "problem": {
+    "title": "¿Tu operación está en modo 'manual'?",
+    "subtitle": "Si reconoces alguno de estos síntomas, tu negocio necesita automatización:",
+    "points": [
+      {
+        "title": "Procesos lentos",
+        "description": "Tareas repetitivas que consumen horas de tu equipo cada semana"
+      },
+      {
+        "title": "Datos dispersos",
+        "description": "Información en Excel, papel y múltiples sistemas desconectados"
+      },
+      {
+        "title": "Errores humanos",
+        "description": "Fallas costosas por operación manual y falta de automatización"
+      },
+      {
+        "title": "Crecimiento limitado",
+        "description": "No puedes escalar sin contratar más personas constantemente"
+      }
+    ]
+  },
+  "method": {
+    "title": "El Método Científico del Software",
+    "subtitle": "No hago plantillas genéricas. Cada proyecto es un experimento científico:",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Diagnóstico",
+        "description": "Analizo tu operación para identificar los cuellos de botella reales"
+      },
+      {
+        "number": "02",
+        "title": "Hipótesis",
+        "description": "Diseño una solución técnica específica para tu problema"
+      },
+      {
+        "number": "03",
+        "title": "Prototipo",
+        "description": "Desarrollo rápido de MVP para validar la solución"
+      },
+      {
+        "number": "04",
+        "title": "Iteración",
+        "description": "Refinamiento continuo basado en métricas reales de uso"
+      }
+    ]
+  },
+  "services": {
+    "title": "Servicios",
+    "subtitle": "Soluciones de software diseñadas para hacer crecer tu negocio"
+  },
+  "portfolio": {
+    "title": "Casos de Estudio",
+    "subtitle": "Resultados reales de proyectos completados"
+  },
+  "about": {
+    "title": "El Científico Jefe",
+    "subtitle": "Nestor Cabrera",
+    "description": "Desarrollador autónomo especializado en crear software que resuelve problemas reales de negocio. No hago plantillas genéricas; cada proyecto es un experimento científico donde el objetivo es optimizar tu operación.",
+    "cta": "Conoce más sobre mí"
+  }
+}

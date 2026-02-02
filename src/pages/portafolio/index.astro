@@ -1,0 +1,180 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { MorphingBlob } from '@/components/ui/MorphingBlob';
+import { CustomCursor } from '@/components/ui/CustomCursor';
+
+const title = 'Portafolio de Proyectos | Casos de Éxito en Desarrollo de Software';
+const description = 'Casos de éxito reales: proyectos de e-commerce, automatización y sistemas de gestión completados. Resultados medibles y testimonios de clientes satisfechos en Colombia.';
+
+const allProjects = await getCollection('portfolio', ({ data }) => {
+  return data.lang === 'es';
+});
+
+const sortedProjects = allProjects.sort((a, b) => b.data.year - a.data.year);
+---
+
+<BaseLayout title={title} description={description} lang="es">
+  <CustomCursor client:load />
+
+  <div class="min-h-screen bg-background gradient-mesh">
+    <section class="relative min-h-[60vh] flex items-center justify-center px-4 sm:px-6 py-20 overflow-hidden">
+      <MorphingBlob client:load className="hidden sm:block top-0 left-1/4 opacity-20" color="#A78BFA" size={500} />
+
+      <div class="relative z-10 mx-auto max-w-5xl text-center">
+        <div class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm mb-8">
+          💼 {sortedProjects.length} proyectos completados
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[1.1] mb-6">
+          <span class="block text-foreground">Casos de</span>
+          <span class="block bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">
+            Éxito
+          </span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          Resultados <span class="text-foreground font-semibold">reales</span> de proyectos completados. Software que transformó operaciones y escaló negocios.
+        </p>
+      </div>
+    </section>
+
+    <section class="relative px-4 sm:px-6 py-16 md:py-24 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        {sortedProjects.length === 0 ? (
+          <div class="text-center py-20">
+            <div class="text-6xl mb-4">🚀</div>
+            <p class="text-xl text-muted-foreground">Proyectos destacados próximamente.</p>
+          </div>
+        ) : (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {sortedProjects.map((project, index) => (
+              <a
+                href={`/portafolio/${project.slug.replace(/^(es|en)\//, '')}/`}
+                class="group relative rounded-3xl overflow-hidden transition-all hover:scale-[1.02] duration-500"
+                style={`animation-delay: ${index * 0.1}s`}
+              >
+                <div class="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/10 via-purple-500/10 to-transparent">
+                  <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-500/20 group-hover:from-primary/30 group-hover:to-purple-500/30 transition-all duration-700"></div>
+
+                  <div class="absolute inset-0 backdrop-blur-[2px] group-hover:backdrop-blur-[4px] transition-all duration-700"></div>
+
+                  <div class="relative h-full flex flex-col justify-between p-6 md:p-8">
+                    <div class="flex items-start justify-between">
+                      <div class="flex items-center gap-2">
+                        <span class="inline-flex items-center rounded-full bg-background/80 backdrop-blur-sm border border-border px-3 py-1 text-xs font-medium text-foreground">
+                          {project.data.industry}
+                        </span>
+                        <span class="inline-flex items-center rounded-full bg-background/80 backdrop-blur-sm border border-border px-3 py-1 text-xs font-medium text-muted-foreground">
+                          {project.data.year}
+                        </span>
+                      </div>
+
+                      <div class="text-4xl md:text-5xl opacity-80 group-hover:scale-110 group-hover:opacity-100 transition-all duration-500">
+                        {project.data.industry === 'Distribución de Alimentos' ? '📦' :
+                         project.data.industry === 'E-commerce' ? '🛒' :
+                         project.data.industry === 'Fashion' ? '👕' : '💼'}
+                      </div>
+                    </div>
+
+                    <div class="space-y-4">
+                      <div>
+                        <h2 class="text-2xl md:text-3xl font-black text-foreground mb-2 group-hover:text-primary transition-colors">
+                          {project.data.title}
+                        </h2>
+                        <p class="text-sm md:text-base text-muted-foreground line-clamp-2">
+                          {project.data.description}
+                        </p>
+                      </div>
+
+                      {/* Metrics badge */}
+                      {project.data.metrics && (
+                        <div class="inline-flex items-center gap-2 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 px-4 py-2 text-sm font-bold text-primary">
+                          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                          </svg>
+                          {project.data.metrics.improvement}
+                        </div>
+                      )}
+
+                      {/* Tech stack */}
+                      <div class="flex flex-wrap gap-2">
+                        {project.data.technologies.slice(0, 4).map((tech) => (
+                          <span class="inline-flex items-center rounded-lg bg-background/60 backdrop-blur-sm border border-border px-2.5 py-1 text-xs font-medium text-foreground">
+                            {tech}
+                          </span>
+                        ))}
+                        {project.data.technologies.length > 4 && (
+                          <span class="inline-flex items-center rounded-lg bg-background/60 backdrop-blur-sm border border-border px-2.5 py-1 text-xs font-medium text-muted-foreground">
+                            +{project.data.technologies.length - 4}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* View project arrow */}
+                      <div class="flex items-center gap-2 text-sm font-semibold text-primary opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                        Ver proyecto
+                        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Hover glow effect */}
+                  <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-purple-500/20 blur-2xl"></div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+
+    <section class="relative px-4 sm:px-6 py-16 md:py-24 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <div class="relative rounded-2xl md:rounded-3xl border-2 border-primary/20 bg-card p-6 sm:p-8 md:p-12 text-center overflow-hidden">
+          <MorphingBlob client:load className="hidden sm:block top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-15" color="#818CF8" size={400} />
+
+          <div class="relative z-10">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter mb-4 md:mb-6">
+              ¿Quieres ser el próximo <span class="text-primary">caso de éxito</span>?
+            </h2>
+            <p class="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto">
+              Cuéntame sobre tu proyecto. Agenda una consulta gratuita de 30 minutos.
+            </p>
+            <a
+              href="mailto:nestor@simiocodelabs.com"
+              class="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full bg-primary px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 text-sm sm:text-base md:text-lg font-semibold text-primary-foreground shadow-2xl transition-all hover:scale-105 w-full sm:w-auto max-w-full"
+            >
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span class="truncate">nestor@simiocodelabs.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Fade in animation for projects */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  a[href^="/portafolio/"] {
+    animation: fadeInUp 0.6s ease-out backwards;
+  }
+</style>

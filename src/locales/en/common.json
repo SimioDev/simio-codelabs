@@ -1,0 +1,29 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "about": "About"
+  },
+  "cta": {
+    "schedule": "Schedule Free Consultation",
+    "contact": "Contact",
+    "learnMore": "Learn More",
+    "viewProject": "View Project",
+    "readMore": "Read More"
+  },
+  "footer": {
+    "copyright": "© 2026 Simio CodeLabs. All rights reserved.",
+    "by": "Developed by Nestor Cabrera",
+    "links": "Links",
+    "social": "Social Media",
+    "legal": "Legal",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "language": {
+    "es": "Español",
+    "en": "English"
+  }
+}

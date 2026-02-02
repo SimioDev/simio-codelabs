@@ -1,0 +1,126 @@
+---
+import { SEO } from 'astro-seo';
+import type { Locale } from '@/utils/i18n';
+import { generateOrganizationSchema, generateWebsiteSchema } from '@/utils/seo';
+import Header from '@/components/shared/Header.astro';
+import Footer from '@/components/shared/Footer.astro';
+import { Spotlight } from '@/components/ui/Spotlight';
+import '@/styles/globals.css';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  article?: boolean;
+  lang?: Locale;
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+}
+
+const {
+  title,
+  description,
+  image,
+  article = false,
+  lang = 'es',
+  publishedTime,
+  modifiedTime,
+  author
+} = Astro.props;
+
+const siteUrl = import.meta.env.SITE || 'https://simiocodelabs.com';
+const ogImage = image ? `${siteUrl}${image}` : `${siteUrl}/images/og-default.jpg`;
+
+const schemaOrg = generateOrganizationSchema(siteUrl);
+const websiteSchema = generateWebsiteSchema(siteUrl);
+
+const articleSchema = article ? {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": publishedTime,
+  "dateModified": modifiedTime,
+  "author": {
+    "@type": "Person",
+    "name": author || "Nestor Cabrera"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Simio CodeLabs",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/images/logo.png`
+    }
+  }
+} : null;
+
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const alternateUrl = lang === 'es'
+  ? `${siteUrl}/en${Astro.url.pathname}`
+  : `${siteUrl}${Astro.url.pathname.replace('/en', '')}`;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#818CF8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="keywords" content="desarrollo software colombia, automatización procesos, e-commerce medida, sistemas gestión, landing pages conversión, desarrollo web colombia, programador freelance" />
+
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonicalUrl}
+      openGraph={{
+        basic: {
+          title: title,
+          type: article ? 'article' : 'website',
+          image: ogImage,
+          url: canonicalUrl
+        },
+        optional: {
+          description: description,
+          locale: lang,
+          siteName: 'Simio CodeLabs'
+        },
+        article: article ? {
+          publishedTime: publishedTime,
+          modifiedTime: modifiedTime,
+          authors: [author || 'Nestor Cabrera']
+        } : undefined
+      }}
+      twitter={{
+        card: 'summary_large_image',
+        title: title,
+        description: description,
+        image: ogImage
+      }}
+    />
+
+    <link rel="alternate" hreflang={lang === 'es' ? 'en' : 'es'} href={alternateUrl} />
+    <link rel="alternate" hreflang="x-default" href={siteUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    {articleSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    )}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <Spotlight client:load />
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

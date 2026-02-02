@@ -1,0 +1,130 @@
+---
+import { getLocaleFromUrl } from '@/utils/i18n';
+import LanguageSwitcher from './LanguageSwitcher';
+import { ThemeToggle } from './ThemeToggle';
+
+const currentPath = Astro.url.pathname;
+const locale = getLocaleFromUrl(Astro.url);
+
+const isEnglish = locale === 'en';
+const baseUrl = isEnglish ? '/en' : '';
+
+const navigation = isEnglish
+  ? [
+      { name: 'Home', href: '/en/' },
+      { name: 'Services', href: '/en/services/' },
+      { name: 'Portfolio', href: '/en/portfolio/' },
+      { name: 'Blog', href: '/en/blog/' },
+      { name: 'About', href: '/en/about/' },
+    ]
+  : [
+      { name: 'Inicio', href: '/' },
+      { name: 'Servicios', href: '/servicios/' },
+      { name: 'Portafolio', href: '/portafolio/' },
+      { name: 'Blog', href: '/blog/' },
+      { name: 'Sobre Mí', href: '/sobre/' },
+    ];
+
+const isActive = (path: string) => {
+  if (path === '/' || path === '/en/') {
+    return currentPath === path;
+  }
+  return currentPath.startsWith(path);
+};
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-lg supports-[backdrop-filter]:bg-background/60">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8" aria-label="Global">
+    <!-- Logo -->
+    <div class="flex lg:flex-1">
+      <a href={baseUrl + '/'} class="-m-1.5 p-1.5 group">
+        <span class="text-xl font-black text-foreground group-hover:text-primary transition-colors">
+          Simio <span class="text-primary">CodeLabs</span>
+        </span>
+      </a>
+    </div>
+
+    <!-- Mobile menu button -->
+    <div class="flex lg:hidden">
+      <button
+        type="button"
+        class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-foreground"
+        id="mobile-menu-button"
+      >
+        <span class="sr-only">Abrir menú</span>
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Desktop navigation -->
+    <div class="hidden lg:flex lg:gap-x-8">
+      {navigation.map((item) => (
+        <a
+          href={item.href}
+          class={`text-sm font-semibold leading-6 transition-colors hover:text-primary ${
+            isActive(item.href)
+              ? 'text-primary'
+              : 'text-muted-foreground'
+          }`}
+        >
+          {item.name}
+        </a>
+      ))}
+    </div>
+
+    <!-- CTA + Theme Toggle + Language Switcher -->
+    <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4 lg:items-center">
+      <ThemeToggle client:load />
+      <LanguageSwitcher client:load currentLocale={locale} currentPath={currentPath} />
+      <a
+        href={baseUrl + '/#contacto'}
+        class="rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
+      >
+        {isEnglish ? 'Contact' : 'Contactar'}
+      </a>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="lg:hidden hidden" id="mobile-menu">
+    <div class="space-y-2 px-6 pb-6 pt-2">
+      {navigation.map((item) => (
+        <a
+          href={item.href}
+          class={`block rounded-lg px-3 py-2 text-base font-semibold leading-7 transition-colors hover:bg-muted ${
+            isActive(item.href)
+              ? 'text-primary bg-muted'
+              : 'text-foreground'
+          }`}
+        >
+          {item.name}
+        </a>
+      ))}
+      <div class="pt-4 border-t space-y-4">
+        <div class="flex items-center gap-3">
+          <ThemeToggle client:load />
+          <LanguageSwitcher client:load currentLocale={locale} currentPath={currentPath} />
+        </div>
+        <a
+          href={baseUrl + '/#contacto'}
+          class="block rounded-md bg-primary px-4 py-2 text-center text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90"
+        >
+          {isEnglish ? 'Contact' : 'Contactar'}
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+
+  if (button && menu) {
+    button.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>

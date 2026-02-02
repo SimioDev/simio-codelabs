@@ -1,0 +1,69 @@
+{
+  "hero": {
+    "headline": "Your business, optimized with custom software",
+    "subheadline": "I transform manual processes into intelligent systems that scale your operation. No templates, no generic solutions. Just code that solves your specific problems.",
+    "cta": "🚀 Schedule Free Consultation"
+  },
+  "problem": {
+    "title": "Is your operation stuck in 'manual mode'?",
+    "subtitle": "If you recognize any of these symptoms, your business needs automation:",
+    "points": [
+      {
+        "title": "Slow processes",
+        "description": "Repetitive tasks consuming hours of your team's time every week"
+      },
+      {
+        "title": "Scattered data",
+        "description": "Information in Excel, paper, and multiple disconnected systems"
+      },
+      {
+        "title": "Human errors",
+        "description": "Costly mistakes from manual operation and lack of automation"
+      },
+      {
+        "title": "Limited growth",
+        "description": "Can't scale without constantly hiring more people"
+      }
+    ]
+  },
+  "method": {
+    "title": "The Scientific Method of Software",
+    "subtitle": "I don't build generic templates. Every project is a scientific experiment:",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Diagnosis",
+        "description": "I analyze your operation to identify real bottlenecks"
+      },
+      {
+        "number": "02",
+        "title": "Hypothesis",
+        "description": "Design a specific technical solution for your problem"
+      },
+      {
+        "number": "03",
+        "title": "Prototype",
+        "description": "Rapid MVP development to validate the solution"
+      },
+      {
+        "number": "04",
+        "title": "Iteration",
+        "description": "Continuous refinement based on real usage metrics"
+      }
+    ]
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Software solutions designed to grow your business"
+  },
+  "portfolio": {
+    "title": "Case Studies",
+    "subtitle": "Real results from completed projects"
+  },
+  "about": {
+    "title": "The Chief Scientist",
+    "subtitle": "Nestor Cabrera",
+    "description": "Independent developer specialized in creating software that solves real business problems. I don't build generic templates; each project is a scientific experiment where the goal is to optimize your operation.",
+    "cta": "Learn more about me"
+  }
+}

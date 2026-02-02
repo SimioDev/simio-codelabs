@@ -1,0 +1,29 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "blog": "Blog",
+    "about": "Sobre Mí"
+  },
+  "cta": {
+    "schedule": "Agenda Diagnóstico Gratuito",
+    "contact": "Contactar",
+    "learnMore": "Conoce Más",
+    "viewProject": "Ver Proyecto",
+    "readMore": "Leer Más"
+  },
+  "footer": {
+    "copyright": "© 2026 Simio CodeLabs. Todos los derechos reservados.",
+    "by": "Desarrollado por Nestor Cabrera",
+    "links": "Enlaces",
+    "social": "Redes Sociales",
+    "legal": "Legal",
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  },
+  "language": {
+    "es": "Español",
+    "en": "English"
+  }
+}

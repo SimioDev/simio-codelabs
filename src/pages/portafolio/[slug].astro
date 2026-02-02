@@ -1,0 +1,174 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const portfolioItems = await getCollection('portfolio', ({ data }) => {
+    return data.lang === 'es';
+  });
+
+  return portfolioItems.map((item) => {
+    // Remove the language folder from slug (es/project-name -> project-name)
+    const cleanSlug = item.slug.replace(/^(es|en)\//, '');
+    return {
+      params: { slug: cleanSlug },
+      props: { item },
+    };
+  });
+}
+
+const { item } = Astro.props;
+const { Content } = await item.render();
+---
+
+<BaseLayout
+  title={`${item.data.title} - Portfolio`}
+  description={item.data.description}
+  image={item.data.image}
+  lang="es"
+>
+  <article class="min-h-screen bg-background">
+    <div class="mx-auto max-w-7xl px-6 py-16">
+      <header class="mb-12">
+        <a
+          href="/portafolio/"
+          class="inline-flex items-center text-sm font-semibold text-primary hover:text-primary/80 mb-6"
+        >
+          ← Volver al portafolio
+        </a>
+        <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl mb-4">
+          {item.data.title}
+        </h1>
+        <p class="text-xl text-muted-foreground mb-8">
+          {item.data.description}
+        </p>
+
+        <div class="flex flex-wrap gap-6 text-sm">
+          <div>
+            <span class="text-muted-foreground">Cliente:</span>
+            <span class="ml-2 font-semibold text-foreground">{item.data.client}</span>
+          </div>
+          <div>
+            <span class="text-muted-foreground">Industria:</span>
+            <span class="ml-2 font-semibold text-foreground">{item.data.industry}</span>
+          </div>
+          <div>
+            <span class="text-muted-foreground">Año:</span>
+            <span class="ml-2 font-semibold text-foreground">{item.data.year}</span>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-2">
+          {item.data.technologies.map((tech) => (
+            <span class="inline-flex items-center rounded-md bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </header>
+
+      <div class="mb-12 rounded-lg overflow-hidden bg-muted aspect-video">
+        <img
+          src={item.data.image}
+          alt={item.data.title}
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      {item.data.metrics && (
+        <div class="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <div class="rounded-lg border bg-card p-6">
+            <h3 class="text-sm font-semibold text-muted-foreground mb-2">Antes</h3>
+            <p class="text-lg font-bold text-card-foreground">{item.data.metrics.before}</p>
+          </div>
+          <div class="rounded-lg border bg-card p-6">
+            <h3 class="text-sm font-semibold text-muted-foreground mb-2">Después</h3>
+            <p class="text-lg font-bold text-card-foreground">{item.data.metrics.after}</p>
+          </div>
+          <div class="rounded-lg border bg-primary p-6">
+            <h3 class="text-sm font-semibold text-primary-foreground/80 mb-2">Resultado</h3>
+            <p class="text-lg font-bold text-primary-foreground">{item.data.metrics.improvement}</p>
+          </div>
+        </div>
+      )}
+
+      <div class="prose prose-lg max-w-none mb-12">
+        <Content />
+      </div>
+
+      {item.data.gallery && item.data.gallery.length > 0 && (
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-foreground mb-6">Galería</h2>
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {item.data.gallery.map((image, index) => (
+              <div class="rounded-lg overflow-hidden bg-muted aspect-video">
+                <img
+                  src={image}
+                  alt={`${item.data.title} - Imagen ${index + 1}`}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div class="rounded-lg bg-muted p-8 text-center">
+        <h3 class="text-2xl font-bold text-foreground mb-4">
+          ¿Tu negocio necesita una solución similar?
+        </h3>
+        <p class="text-muted-foreground mb-6">
+          Agenda un diagnóstico gratuito y descubre cómo puedo ayudarte.
+        </p>
+        <a
+          href="/#contacto"
+          class="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90"
+        >
+          Agenda Consulta Gratuita
+        </a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .prose {
+    color: hsl(var(--foreground));
+  }
+
+  .prose h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose p {
+    margin-bottom: 1.25rem;
+    line-height: 1.75;
+  }
+
+  .prose ul, .prose ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose blockquote {
+    border-left: 4px solid hsl(var(--primary));
+    padding-left: 1.5rem;
+    font-style: italic;
+    color: hsl(var(--muted-foreground));
+    margin: 1.5rem 0;
+  }
+</style>

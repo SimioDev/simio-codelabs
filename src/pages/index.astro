@@ -1,11 +1,264 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { BentoGrid, BentoItem } from '@/components/ui/BentoGrid';
+import { MorphingBlob } from '@/components/ui/MorphingBlob';
+import { CustomCursor } from '@/components/ui/CustomCursor';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = 'Simio CodeLabs - Desarrollo de Software a Medida | Automatización & E-commerce Colombia';
+const description = 'Desarrollo de software a medida en Colombia. Automatización de procesos, e-commerce, sistemas de gestión y landing pages. +5 años de experiencia, +20 proyectos completados.';
+
+const blogPosts = await getCollection('blog', ({ data }) => {
+  return data.lang === 'es' && !data.draft;
+});
+
+const portfolioItems = await getCollection('portfolio', ({ data }) => {
+  return data.lang === 'es';
+});
+
+const recentPosts = blogPosts
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
+
+const featuredProjects = portfolioItems.slice(0, 3);
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title={title} description={description} lang="es">
+  <CustomCursor client:load />
+
+  <div class="min-h-screen bg-background gradient-mesh">
+    <section class="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-16 sm:py-20 overflow-hidden">
+      <MorphingBlob client:load className="hidden lg:block top-0 left-0 opacity-20" color="#A78BFA" size={500} />
+
+      <div class="relative z-10 mx-auto max-w-7xl w-full">
+        <div class="space-y-12 max-w-3xl">
+          <div class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm animate-clip-reveal">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            Disponible para nuevos proyectos
+          </div>
+
+          <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter leading-[1.1]">
+            <span class="block text-foreground">Tu negocio,</span>
+            <span class="block bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">
+              optimizado
+            </span>
+            <span class="block text-foreground">con código</span>
+          </h1>
+
+          <p class="max-w-2xl text-xl md:text-2xl text-muted-foreground leading-relaxed">
+            Transformo procesos manuales en <span class="text-foreground font-semibold">sistemas inteligentes</span> que escalan tu operación.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-start gap-4">
+            <a
+              href="#contacto"
+              class="group relative inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-all hover:scale-105 hover:shadow-2xl hover:shadow-primary/50"
+            >
+              Agenda Diagnóstico Gratuito
+              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <a
+              href="/portafolio/"
+              class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-border bg-background px-8 py-4 text-lg font-semibold transition-all hover:border-primary hover:bg-muted"
+            >
+              Ver Proyectos
+            </a>
+          </div>
+
+          <div class="grid grid-cols-3 gap-8 max-w-2xl pt-8">
+            {[
+              { value: '5+', label: 'Años' },
+              { value: '20+', label: 'Proyectos' },
+              { value: '90%', label: 'Eficiencia' }
+            ].map((stat) => (
+              <div class="text-center">
+                <div class="text-4xl md:text-5xl font-black text-primary">{stat.value}</div>
+                <div class="text-sm text-muted-foreground mt-2">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative px-6 py-32 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="mb-12 md:mb-16">
+          <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-4 md:mb-6">
+            Servicios
+          </h2>
+          <p class="text-lg md:text-xl text-muted-foreground max-w-2xl">
+            Soluciones diseñadas para hacer crecer tu negocio
+          </p>
+        </div>
+
+        <BentoGrid client:load>
+          <BentoItem client:load delay={0} span="double">
+            <div class="h-full flex flex-col justify-between">
+              <div>
+                <div class="text-5xl mb-4">⚙️</div>
+                <h3 class="text-3xl font-bold mb-4">Automatización de Procesos</h3>
+                <p class="text-muted-foreground text-lg">
+                  Elimina tareas repetitivas y libera tiempo de tu equipo para actividades de alto valor.
+                </p>
+              </div>
+              <div class="flex flex-wrap gap-2 mt-6">
+                {['Python', 'Node.js', 'APIs'].map((tech) => (
+                  <span class="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </BentoItem>
+
+          <BentoItem client:load delay={0.1}>
+            <div class="h-full flex flex-col justify-between">
+              <div>
+                <div class="text-5xl mb-4">🛒</div>
+                <h3 class="text-2xl font-bold mb-3">E-commerce</h3>
+                <p class="text-muted-foreground">
+                  Tiendas online optimizadas para conversión
+                </p>
+              </div>
+              <div class="mt-4">
+                <span class="text-sm text-muted-foreground">Desde</span>
+                <div class="text-2xl font-bold text-primary">$3,000</div>
+              </div>
+            </div>
+          </BentoItem>
+
+          <BentoItem client:load delay={0.2}>
+            <div class="h-full flex flex-col justify-between">
+              <div>
+                <div class="text-5xl mb-4">📊</div>
+                <h3 class="text-2xl font-bold mb-3">Sistemas de Gestión</h3>
+                <p class="text-muted-foreground">
+                  ERPs y CRMs que se adaptan a tu flujo
+                </p>
+              </div>
+            </div>
+          </BentoItem>
+
+          <BentoItem client:load delay={0.3} span="double">
+            <div class="h-full flex flex-col justify-between">
+              <div>
+                <div class="text-5xl mb-4">🚀</div>
+                <h3 class="text-3xl font-bold mb-4">Landing Pages de Alta Conversión</h3>
+                <p class="text-muted-foreground text-lg">
+                  Páginas diseñadas específicamente para convertir visitantes en clientes. Diseño persuasivo y analítica integrada.
+                </p>
+              </div>
+              <div class="flex gap-4 mt-6">
+                <div class="flex-1 rounded-2xl bg-muted p-4">
+                  <div class="text-xs text-muted-foreground mb-1">Antes</div>
+                  <div class="text-lg font-bold">1.5% conversión</div>
+                </div>
+                <div class="flex-1 rounded-2xl bg-primary/10 p-4">
+                  <div class="text-xs text-primary mb-1">Después</div>
+                  <div class="text-lg font-bold text-primary">4.5% conversión</div>
+                </div>
+              </div>
+            </div>
+          </BentoItem>
+        </BentoGrid>
+
+        <div class="mt-12 text-center">
+          <a
+            href="/servicios/"
+            class="inline-flex items-center gap-2 text-lg font-semibold text-primary hover:text-primary/80 transition-colors group"
+          >
+            Ver todos los servicios
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {featuredProjects.length > 0 && (
+      <section class="relative px-6 py-32 lg:px-8 bg-muted/30">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-12 md:mb-16">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-4 md:mb-6">
+              Casos de Éxito
+            </h2>
+            <p class="text-lg md:text-xl text-muted-foreground max-w-2xl">
+              Resultados reales de proyectos completados
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredProjects.map((project, index) => (
+              <a
+                href={`/portafolio/${project.slug.replace(/^(es|en)\//, '')}/`}
+                class="group relative rounded-3xl border border-border bg-card overflow-hidden transition-all hover:border-primary/50 hover:scale-[1.02] hover:shadow-2xl"
+              >
+                {project.data.image ? (
+                  <div class="aspect-video overflow-hidden bg-muted relative">
+                    <img
+                      src={project.data.image}
+                      alt={project.data.title}
+                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60"></div>
+                  </div>
+                ) : (
+                  <div class="aspect-video bg-gradient-to-br from-primary/20 to-purple-500/20 group-hover:from-primary/30 group-hover:to-purple-500/30 transition-colors"></div>
+                )}
+                <div class="p-6">
+                  <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                    {project.data.title}
+                  </h3>
+                  <p class="text-sm text-muted-foreground line-clamp-2 mb-4">
+                    {project.data.description}
+                  </p>
+                  {project.data.metrics && (
+                    <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                      </svg>
+                      {project.data.metrics.improvement}
+                    </div>
+                  )}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <section id="contacto" class="relative px-4 sm:px-6 py-16 md:py-32 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <div class="relative rounded-2xl md:rounded-3xl border-2 border-primary/20 bg-card p-6 sm:p-8 md:p-12 text-center overflow-hidden">
+          <MorphingBlob client:load className="hidden sm:block top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" color="#818CF8" size={400} />
+
+          <div class="relative z-10">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter mb-4 md:mb-6">
+              ¿Listo para <span class="text-primary">transformar</span> tu negocio?
+            </h2>
+            <p class="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto">
+              Agenda un diagnóstico gratuito de 30 minutos. Sin compromiso, sin costo.
+            </p>
+            <a
+              href="mailto:nestor@simiocodelabs.com"
+              class="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full bg-primary px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 text-sm sm:text-base md:text-lg font-semibold text-primary-foreground shadow-2xl transition-all hover:scale-105 hover:shadow-primary/50 w-full sm:w-auto max-w-full"
+            >
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span class="truncate">nestor@simiocodelabs.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

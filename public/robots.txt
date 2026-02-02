@@ -1,0 +1,5 @@
+# robots.txt for Simio CodeLabs
+User-agent: *
+Allow: /
+
+Sitemap: https://simiocodelabs.com/sitemap-index.xml

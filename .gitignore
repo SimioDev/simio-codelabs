@@ -16,9 +16,27 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # macOS-specific files
 .DS_Store
 
 # jetbrains setting folder
 .idea/
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+.cache/
+
+# OS generated files
+Thumbs.db
+Desktop.ini
