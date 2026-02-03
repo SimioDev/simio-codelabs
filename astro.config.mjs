@@ -8,7 +8,7 @@ import vercel from '@astrojs/vercel';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://simio-codelabs.netlify.app',
-  trailingSlash: 'always',
+  trailingSlash: 'ignore',
   build: {
     format: 'directory'
   },

@@ -69,9 +69,14 @@ const alternateUrl = lang === 'es'
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#818CF8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="google-site-verification" content="E0ETLl9IWaPzXBBcSG5yYCWr2tENDRMVxgZa9pP5KP4" />
     <meta name="keywords" content="desarrollo software colombia, automatización procesos, e-commerce medida, sistemas gestión, landing pages conversión, desarrollo web colombia, programador freelance" />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:locale" content={lang === 'es' ? 'es_CO' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@simiocodelabs" />
 
     <SEO
       title={title}

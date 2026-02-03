@@ -8,7 +8,7 @@ import FAQSection from '@/components/sections/FAQSection';
 import { Settings, ShoppingCart, Database, Rocket } from 'lucide-react';
 
 const title = 'Desarrollo de Software a Medida en Colombia | Simio CodeLabs';
-const description = 'Software que funciona, sin bullshit. Automatización, e-commerce y sistemas a medida. 5+ años resolviendo problemas reales de negocios en Colombia.';
+const description = 'Software que funciona. Automatización, e-commerce y sistemas a medida. 5+ años resolviendo problemas reales.';
 
 const blogPosts = await getCollection('blog', ({ data }) => {
   return data.lang === 'es' && !data.draft;
@@ -267,6 +267,69 @@ const faqs = [
         </div>
       </section>
     )}
+
+    <section class="relative px-6 py-16 md:py-24 lg:px-8 bg-muted/30">
+      <div class="mx-auto max-w-6xl">
+        <div class="text-center mb-12 md:mb-16">
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter mb-4">
+            Por qué no soy tu típico freelancer
+          </h2>
+          <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Sin promesas exageradas. Solo trabajo honesto y código que funciona.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="rounded-2xl border border-border bg-card p-6">
+            <div class="text-4xl mb-4">🎯</div>
+            <h3 class="text-xl font-bold mb-3 text-foreground">Enfoque en resultados</h3>
+            <p class="text-muted-foreground">
+              No me importa usar la última tecnología de moda si no resuelve tu problema. Uso lo que funciona: React cuando necesitas interactividad, Python para automatización, lo que sea necesario para que TU negocio crezca.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-border bg-card p-6">
+            <div class="text-4xl mb-4">💬</div>
+            <h3 class="text-xl font-bold mb-3 text-foreground">Comunicación clara</h3>
+            <p class="text-muted-foreground">
+              Cero jerga innecesaria. Te explico qué estoy haciendo, por qué lo hago así, y cuánto va a costar. Updates semanales, acceso al repositorio, sin secretos. Tu proyecto, tu código.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-border bg-card p-6">
+            <div class="text-4xl mb-4">⚡</div>
+            <h3 class="text-xl font-bold mb-3 text-foreground">Entrega iterativa</h3>
+            <p class="text-muted-foreground">
+              No esperas 3 meses para ver algo. Trabajo en sprints de 1 semana. Cada viernes ves progreso real. Algo no te gusta? Lo ajustamos la próxima semana. Así evitamos sorpresas al final.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-border bg-card p-6">
+            <div class="text-4xl mb-4">📚</div>
+            <h3 class="text-xl font-bold mb-3 text-foreground">Documentación incluida</h3>
+            <p class="text-muted-foreground">
+              Todos mis proyectos incluyen documentación. No te dejo con un sistema que solo yo entiendo. Si mañana necesitas otro dev, puede entender qué hice y cómo funciona todo.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-border bg-card p-6">
+            <div class="text-4xl mb-4">🛡️</div>
+            <h3 class="text-xl font-bold mb-3 text-foreground">Sin vendor lock-in</h3>
+            <p class="text-muted-foreground">
+              Tu código es tuyo. No uso plataformas propietarias que te aten a subscripciones eternas. Si decides irte con otro dev o llevarlo in-house, puedes. Detesto los rehenes digitales.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-border bg-card p-6">
+            <div class="text-4xl mb-4">🔧</div>
+            <h3 class="text-xl font-bold mb-3 text-foreground">Mantenimiento real</h3>
+            <p class="text-muted-foreground">
+              30 días de soporte gratis post-lanzamiento. Después, opciones flexibles: soporte mensual, por horas, o nada si prefieres manejarlo tú. No te obligo a pagar mantenimiento que no necesitas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <FAQSection client:load faqs={faqs} lang="es" />
 
