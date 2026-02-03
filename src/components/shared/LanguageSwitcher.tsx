@@ -11,14 +11,15 @@ export default function LanguageSwitcher({ currentLocale, currentPath }: Languag
 
   const getAlternatePath = (targetLocale: Locale) => {
     if (targetLocale === 'es') {
-      // Remove /en from path
-      return currentPath.replace(/^\/en/, '') || '/';
+      const path = currentPath.replace(/^\/en/, '') || '/';
+      return path.endsWith('/') ? path : `${path}/`;
     } else {
-      // Add /en to path
       if (currentPath.startsWith('/en')) {
-        return currentPath;
+        return currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
       }
-      return `/en${currentPath === '/' ? '' : currentPath}`;
+      const basePath = currentPath === '/' ? '/' : currentPath;
+      const enPath = `/en${basePath}`;
+      return enPath.endsWith('/') ? enPath : `${enPath}/`;
     }
   };
 
