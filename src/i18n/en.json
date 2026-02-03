@@ -1,0 +1,237 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "title": "Custom Software",
+      "subtitle": "Development",
+      "description": "I transform ideas into functional software. Automation, e-commerce, and management systems designed specifically for your business.",
+      "cta": "View Projects",
+      "stats": {
+        "experience": "+5 years experience",
+        "projects": "+20 projects",
+        "satisfaction": "100% satisfaction"
+      }
+    },
+    "services": {
+      "title": "Services",
+      "subtitle": "Solutions designed to grow your business",
+      "automation": {
+        "title": "Smart Automation",
+        "description": "Eliminate repetitive tasks and free up your team's time for high-value strategic activities."
+      },
+      "ecommerce": {
+        "title": "Online Stores",
+        "description": "E-commerce optimized for maximum conversion",
+        "from": "From"
+      },
+      "management": {
+        "title": "Management Software",
+        "description": "ERPs and CRMs adapted to your workflow"
+      },
+      "landing": {
+        "title": "High-Converting Landing Pages",
+        "description": "Pages designed specifically to convert visitors into customers. Persuasive design and integrated analytics.",
+        "before": "Before",
+        "after": "After",
+        "conversion": "conversion"
+      }
+    },
+    "portfolio": {
+      "title": "Featured Projects",
+      "subtitle": "Real cases of clients who have transformed their businesses"
+    },
+    "cta": {
+      "title": "Ready to boost your business?",
+      "description": "Schedule a free consultation and discover how custom software can transform your operation.",
+      "button": "Schedule Free Consultation"
+    }
+  },
+  "services": {
+    "hero": {
+      "badge": "✨ Custom solutions for your business",
+      "title": "Custom",
+      "titleHighlight": "Software Services",
+      "description": "I don't use generic templates. Each project is designed specifically to solve your business problems and scale your operation."
+    },
+    "automation": {
+      "title": "Process Automation",
+      "subtitle": "Unleash your team's potential",
+      "description": "Eliminate repetitive tasks and free up your team's time for high-value activities.",
+      "longDescription": "Development of scripts, bots, and systems that automate manual processes. From exporting reports to integrating multiple platforms, each solution is designed to reduce human errors and increase efficiency.",
+      "features": [
+        "Report automation and data analysis",
+        "System integration (APIs, webhooks, ETL)",
+        "Bots for administrative tasks",
+        "Automated workflows with business rules",
+        "Smart notifications and alerts"
+      ],
+      "cta": "Request quote"
+    },
+    "ecommerce": {
+      "title": "Custom E-commerce",
+      "subtitle": "Stores that sell 24/7",
+      "description": "Online stores optimized for conversion, with payment integration and inventory management.",
+      "longDescription": "Development of custom online stores or on platforms like Shopify/WooCommerce. Designed to maximize conversion with optimized UX, fast checkout, and advanced analytics.",
+      "features": [
+        "Responsive design optimized for mobile",
+        "Payment gateway integration",
+        "Real-time inventory management",
+        "Coupon and promotion system",
+        "Conversion analytics (Google Analytics, Hotjar)",
+        "Shipping system integration"
+      ]
+    },
+    "management": {
+      "title": "Management Systems (ERP/CRM)",
+      "subtitle": "Software that adapts to you",
+      "description": "Custom systems to manage your complete operation.",
+      "longDescription": "Development of ERPs and CRMs designed according to your exact processes. You don't force your team to adapt to generic software; the software adapts to how they already work.",
+      "features": [
+        "Inventory and warehouse management",
+        "CRM with customer tracking and sales pipeline",
+        "Integrated electronic invoicing",
+        "Real-time custom reports",
+        "User and permission control",
+        "Integrations with your current stack"
+      ]
+    },
+    "landing": {
+      "title": "Conversion Landing Pages",
+      "subtitle": "Pages that sell",
+      "description": "Landing pages designed with a single goal: convert.",
+      "longDescription": "Persuasive design based on user psychology, optimized copy, A/B testing, and deep analytics. Ideal for marketing campaigns, product launches, or lead generation.",
+      "features": [
+        "Persuasive design with optimized UX",
+        "Conversion-oriented copy",
+        "Smart forms with validation",
+        "Integration with CRMs and email tools",
+        "A/B testing and advanced analytics",
+        "SEO optimization and loading speed"
+      ]
+    },
+    "process": {
+      "title": "How I Work",
+      "steps": [
+        {
+          "title": "1. Free consultation",
+          "description": "We talk about your business and the problems you need to solve."
+        },
+        {
+          "title": "2. Custom proposal",
+          "description": "I present a solution designed specifically for you, with a clear budget."
+        },
+        {
+          "title": "3. Iterative development",
+          "description": "I work in short sprints with regular demos. You see progress every week."
+        },
+        {
+          "title": "4. Delivery and support",
+          "description": "Deployment, team training, and post-launch support included."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to start?",
+      "description": "Schedule a free 30-minute consultation. No commitment, just a conversation about how I can help you.",
+      "button": "Schedule Consultation"
+    }
+  },
+  "portfolio": {
+    "hero": {
+      "title": "Project",
+      "titleHighlight": "Portfolio",
+      "description": "Real projects that have transformed businesses. Measurable results, not promises."
+    },
+    "filters": {
+      "all": "All",
+      "ecommerce": "E-commerce",
+      "automation": "Automation",
+      "management": "Management"
+    },
+    "cta": {
+      "title": "Is your project next?",
+      "button": "Contact Me"
+    }
+  },
+  "blog": {
+    "hero": {
+      "title": "Blog",
+      "description": "Articles about software development, automation, and business technology."
+    },
+    "readMore": "Read article",
+    "readTime": "min read",
+    "cta": {
+      "title": "Subscribe to Newsletter",
+      "description": "Receive articles about software development, automation, and best practices directly in your inbox.",
+      "placeholder": "your@email.com",
+      "button": "Subscribe"
+    }
+  },
+  "about": {
+    "hero": {
+      "greeting": "Hi, I'm",
+      "name": "Nestor",
+      "role": "Full-Stack Developer",
+      "description": "Freelance developer specialized in creating custom software that solves real business problems."
+    },
+    "experience": {
+      "title": "My Journey",
+      "timeline": [
+        { "year": "2019", "event": "First freelance project" },
+        { "year": "2020", "event": "Automation specialization" },
+        { "year": "2022", "event": "Founded Simio CodeLabs" },
+        { "year": "2024", "event": "+20 completed projects" }
+      ]
+    },
+    "skills": {
+      "title": "Tech Stack",
+      "frontend": "Frontend Development",
+      "backend": "Backend & APIs",
+      "devops": "DevOps & Cloud"
+    },
+    "values": {
+      "title": "How I Work",
+      "transparency": {
+        "title": "Total Transparency",
+        "description": "Weekly updates, repository access, no budget surprises."
+      },
+      "quality": {
+        "title": "Quality over Speed",
+        "description": "I prefer to deliver well than deliver fast. Clean, tested, and documented code."
+      },
+      "partnership": {
+        "title": "Partner, not Vendor",
+        "description": "I get involved in your business success. Your growth is my growth."
+      }
+    },
+    "cta": {
+      "title": "Let's Work Together",
+      "description": "If you have a project in mind or just want to talk about technology, write to me.",
+      "button": "Send Message"
+    }
+  },
+  "footer": {
+    "description": "Custom software development for businesses that want to grow.",
+    "services": "Services",
+    "company": "Company",
+    "contact": "Contact",
+    "rights": "All rights reserved."
+  },
+  "contact": {
+    "title": "Contact",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent! I'll reply soon.",
+    "error": "Error sending. Try again."
+  }
+}

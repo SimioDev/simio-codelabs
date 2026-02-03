@@ -1,0 +1,237 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "blog": "Blog",
+    "about": "Sobre Mí",
+    "contact": "Contacto"
+  },
+  "home": {
+    "hero": {
+      "title": "Desarrollo de Software",
+      "subtitle": "a Medida",
+      "description": "Transformo ideas en software funcional. Automatización, e-commerce y sistemas de gestión diseñados específicamente para tu negocio.",
+      "cta": "Ver Proyectos",
+      "stats": {
+        "experience": "+5 años experiencia",
+        "projects": "+20 proyectos",
+        "satisfaction": "100% satisfacción"
+      }
+    },
+    "services": {
+      "title": "Servicios",
+      "subtitle": "Soluciones diseñadas para hacer crecer tu negocio",
+      "automation": {
+        "title": "Automatización Inteligente",
+        "description": "Elimina tareas repetitivas y libera tiempo de tu equipo para actividades estratégicas de alto valor."
+      },
+      "ecommerce": {
+        "title": "Tiendas Online",
+        "description": "E-commerce optimizado para máxima conversión",
+        "from": "Desde"
+      },
+      "management": {
+        "title": "Software de Gestión",
+        "description": "ERPs y CRMs adaptados a tu flujo de trabajo"
+      },
+      "landing": {
+        "title": "Landing Pages de Alta Conversión",
+        "description": "Páginas diseñadas específicamente para convertir visitantes en clientes. Diseño persuasivo y analítica integrada.",
+        "before": "Antes",
+        "after": "Después",
+        "conversion": "conversión"
+      }
+    },
+    "portfolio": {
+      "title": "Proyectos Destacados",
+      "subtitle": "Casos reales de clientes que han transformado sus negocios"
+    },
+    "cta": {
+      "title": "¿Listo para impulsar tu negocio?",
+      "description": "Agenda una consulta gratuita y descubre cómo el software a medida puede transformar tu operación.",
+      "button": "Agendar Consulta Gratuita"
+    }
+  },
+  "services": {
+    "hero": {
+      "badge": "✨ Soluciones a medida para tu negocio",
+      "title": "Servicios de",
+      "titleHighlight": "Software a Medida",
+      "description": "No uso plantillas genéricas. Cada proyecto es diseñado específicamente para resolver tus problemas de negocio y escalar tu operación."
+    },
+    "automation": {
+      "title": "Automatización de Procesos",
+      "subtitle": "Libera el potencial de tu equipo",
+      "description": "Elimina tareas repetitivas y libera tiempo de tu equipo para actividades de alto valor.",
+      "longDescription": "Desarrollo de scripts, bots y sistemas que automatizan procesos manuales. Desde exportar reportes hasta integrar múltiples plataformas, cada solución está diseñada para reducir errores humanos y aumentar eficiencia.",
+      "features": [
+        "Automatización de reportes y análisis de datos",
+        "Integración de sistemas (APIs, webhooks, ETL)",
+        "Bots para tareas administrativas",
+        "Workflows automáticos con reglas de negocio",
+        "Notificaciones y alertas inteligentes"
+      ],
+      "cta": "Solicitar cotización"
+    },
+    "ecommerce": {
+      "title": "E-commerce a Medida",
+      "subtitle": "Tiendas que venden 24/7",
+      "description": "Tiendas online optimizadas para conversión, con integración de pagos y gestión de inventario.",
+      "longDescription": "Desarrollo de tiendas online custom o sobre plataformas como Shopify/WooCommerce. Diseñadas para maximizar conversión con UX optimizado, checkout rápido y analítica avanzada.",
+      "features": [
+        "Diseño responsive optimizado para móvil",
+        "Integración de pasarelas de pago",
+        "Gestión de inventario en tiempo real",
+        "Sistema de cupones y promociones",
+        "Analítica de conversión (Google Analytics, Hotjar)",
+        "Integración con sistemas de envío"
+      ]
+    },
+    "management": {
+      "title": "Sistemas de Gestión (ERP/CRM)",
+      "subtitle": "Software que se adapta a ti",
+      "description": "Sistemas personalizados para gestionar tu operación completa.",
+      "longDescription": "Desarrollo de ERPs y CRMs diseñados según tus procesos exactos. No obligas a tu equipo a adaptarse a un software genérico; el software se adapta a cómo ya trabajan.",
+      "features": [
+        "Gestión de inventario y almacén",
+        "CRM con seguimiento de clientes y pipeline de ventas",
+        "Facturación electrónica integrada",
+        "Reportes personalizados en tiempo real",
+        "Control de usuarios y permisos",
+        "Integraciones con tu stack actual"
+      ]
+    },
+    "landing": {
+      "title": "Landing Pages de Conversión",
+      "subtitle": "Páginas que venden",
+      "description": "Landing pages diseñadas con un único objetivo: convertir.",
+      "longDescription": "Diseño persuasivo basado en psicología de usuario, copy optimizado, A/B testing y analítica profunda. Ideal para campañas de marketing, lanzamientos de productos o captación de leads.",
+      "features": [
+        "Diseño persuasivo con UX optimizado",
+        "Copy orientado a conversión",
+        "Formularios inteligentes con validación",
+        "Integración con CRMs y herramientas de email",
+        "A/B testing y analítica avanzada",
+        "Optimización SEO y velocidad de carga"
+      ]
+    },
+    "process": {
+      "title": "¿Cómo trabajo?",
+      "steps": [
+        {
+          "title": "1. Consulta gratuita",
+          "description": "Conversamos sobre tu negocio y los problemas que necesitas resolver."
+        },
+        {
+          "title": "2. Propuesta personalizada",
+          "description": "Te presento una solución diseñada específicamente para ti, con presupuesto claro."
+        },
+        {
+          "title": "3. Desarrollo iterativo",
+          "description": "Trabajo en sprints cortos con demos regulares. Ves avances cada semana."
+        },
+        {
+          "title": "4. Entrega y soporte",
+          "description": "Deployment, capacitación de tu equipo y soporte post-lanzamiento incluido."
+        }
+      ]
+    },
+    "cta": {
+      "title": "¿Listo para comenzar?",
+      "description": "Agenda una consulta gratuita de 30 minutos. Sin compromiso, solo una conversación sobre cómo puedo ayudarte.",
+      "button": "Agendar Consulta"
+    }
+  },
+  "portfolio": {
+    "hero": {
+      "title": "Portafolio de",
+      "titleHighlight": "Proyectos",
+      "description": "Proyectos reales que han transformado negocios. Resultados medibles, no promesas."
+    },
+    "filters": {
+      "all": "Todos",
+      "ecommerce": "E-commerce",
+      "automation": "Automatización",
+      "management": "Gestión"
+    },
+    "cta": {
+      "title": "¿Tu proyecto es el siguiente?",
+      "button": "Contáctame"
+    }
+  },
+  "blog": {
+    "hero": {
+      "title": "Blog",
+      "description": "Artículos sobre desarrollo de software, automatización y tecnología para negocios."
+    },
+    "readMore": "Leer artículo",
+    "readTime": "min lectura",
+    "cta": {
+      "title": "Suscríbete al Newsletter",
+      "description": "Recibe artículos sobre desarrollo de software, automatización y mejores prácticas directamente en tu inbox.",
+      "placeholder": "tu@email.com",
+      "button": "Suscribirme"
+    }
+  },
+  "about": {
+    "hero": {
+      "greeting": "Hola, soy",
+      "name": "Nestor",
+      "role": "Desarrollador Full-Stack",
+      "description": "Desarrollador autónomo especializado en crear software a medida que resuelve problemas reales de negocio."
+    },
+    "experience": {
+      "title": "Mi Trayectoria",
+      "timeline": [
+        { "year": "2019", "event": "Primer proyecto freelance" },
+        { "year": "2020", "event": "Especialización en automatización" },
+        { "year": "2022", "event": "Fundación de Simio CodeLabs" },
+        { "year": "2024", "event": "+20 proyectos completados" }
+      ]
+    },
+    "skills": {
+      "title": "Stack Tecnológico",
+      "frontend": "Frontend Development",
+      "backend": "Backend & APIs",
+      "devops": "DevOps & Cloud"
+    },
+    "values": {
+      "title": "Cómo Trabajo",
+      "transparency": {
+        "title": "Transparencia Total",
+        "description": "Actualizaciones semanales, acceso a repositorio, sin sorpresas en el presupuesto."
+      },
+      "quality": {
+        "title": "Calidad sobre Rapidez",
+        "description": "Prefiero entregar bien que entregar rápido. Código limpio, testeado y documentado."
+      },
+      "partnership": {
+        "title": "Socio, no Proveedor",
+        "description": "Me involucro en el éxito de tu negocio. Tu crecimiento es mi crecimiento."
+      }
+    },
+    "cta": {
+      "title": "Trabajemos Juntos",
+      "description": "Si tienes un proyecto en mente o simplemente quieres conversar sobre tecnología, escríbeme.",
+      "button": "Enviar Mensaje"
+    }
+  },
+  "footer": {
+    "description": "Desarrollo de software a medida para negocios que quieren crecer.",
+    "services": "Servicios",
+    "company": "Empresa",
+    "contact": "Contacto",
+    "rights": "Todos los derechos reservados."
+  },
+  "contact": {
+    "title": "Contacto",
+    "name": "Nombre",
+    "email": "Email",
+    "message": "Mensaje",
+    "send": "Enviar mensaje",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado! Te responderé pronto.",
+    "error": "Error al enviar. Intenta de nuevo."
+  }
+}

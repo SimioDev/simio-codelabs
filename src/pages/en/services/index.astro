@@ -1,0 +1,240 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { MorphingBlob } from '@/components/ui/MorphingBlob';
+import { CustomCursor } from '@/components/ui/CustomCursor';
+import { useTranslations } from '@/i18n';
+
+const t = useTranslations('en');
+
+const title = 'Custom Software Services | Simio CodeLabs';
+const description = 'Custom software development: process automation, optimized e-commerce, custom ERP/CRM systems, and high-converting landing pages. Free consultation. Scalable solutions for your business.';
+
+const services = [
+  {
+    id: 'automation',
+    title: t.services.automation.title,
+    subtitle: t.services.automation.subtitle,
+    description: t.services.automation.description,
+    longDescription: t.services.automation.longDescription,
+    features: t.services.automation.features,
+    technologies: ['Python', 'Node.js', 'REST APIs', 'Zapier/Make', 'Celery'],
+    icon: '⚙️',
+    gradient: 'from-blue-500 to-cyan-500',
+    stats: { before: '20h/week', after: '2h/week', improvement: '90% reduction' }
+  },
+  {
+    id: 'ecommerce',
+    title: t.services.ecommerce.title,
+    subtitle: t.services.ecommerce.subtitle,
+    description: t.services.ecommerce.description,
+    longDescription: t.services.ecommerce.longDescription,
+    features: t.services.ecommerce.features,
+    technologies: ['Shopify', 'WooCommerce', 'React', 'Next.js', 'Stripe'],
+    icon: '🛒',
+    gradient: 'from-purple-500 to-pink-500',
+    stats: { before: 'DM sales', after: '150+ orders/month', improvement: '300% increase' }
+  },
+  {
+    id: 'management',
+    title: t.services.management.title,
+    subtitle: t.services.management.subtitle,
+    description: t.services.management.description,
+    longDescription: t.services.management.longDescription,
+    features: t.services.management.features,
+    technologies: ['React', 'Node.js', 'PostgreSQL', 'MongoDB', 'REST APIs'],
+    icon: '📊',
+    gradient: 'from-green-500 to-emerald-500',
+    stats: { before: 'Manual Excel', after: 'Automated system', improvement: '80% efficiency' }
+  },
+  {
+    id: 'landing',
+    title: t.services.landing.title,
+    subtitle: t.services.landing.subtitle,
+    description: t.services.landing.description,
+    longDescription: t.services.landing.longDescription,
+    features: t.services.landing.features,
+    technologies: ['Astro', 'React', 'Tailwind CSS', 'GSAP', 'Vercel'],
+    icon: '🚀',
+    gradient: 'from-orange-500 to-red-500',
+    stats: { before: '1.5% conversion', after: '4.5% conversion', improvement: '200% improvement' }
+  }
+];
+
+const processSteps = t.services.process.steps;
+---
+
+<BaseLayout title={title} description={description} lang="en">
+  <CustomCursor client:load />
+
+  <div class="min-h-screen bg-background gradient-mesh">
+    <section class="relative min-h-[70vh] flex items-center justify-center px-4 sm:px-6 py-20 overflow-hidden">
+      <MorphingBlob client:load className="hidden sm:block top-0 right-1/4 opacity-25" color="#818CF8" size={500} />
+
+      <div class="relative z-10 mx-auto max-w-5xl text-center">
+        <div class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm mb-8">
+          {t.services.hero.badge}
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[1.1] mb-6">
+          <span class="block text-foreground">{t.services.hero.title}</span>
+          <span class="block bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">
+            {t.services.hero.titleHighlight}
+          </span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          {t.services.hero.description}
+        </p>
+      </div>
+    </section>
+
+    {services.map((service, index) => (
+      <section id={service.id} class={`relative px-4 sm:px-6 py-16 md:py-24 lg:px-8 ${index % 2 === 1 ? 'bg-muted/30' : ''}`}>
+        <div class="mx-auto max-w-7xl">
+          <div class={`grid grid-cols-1 gap-8 md:gap-12 lg:grid-cols-2 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+            <div class={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+              <div class="space-y-6">
+                <div>
+                  <div class="text-6xl md:text-7xl mb-6">{service.icon}</div>
+                  <h2 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-foreground mb-4">
+                    {service.title}
+                  </h2>
+                  <p class="text-xl md:text-2xl text-primary font-bold mb-4">
+                    {service.subtitle}
+                  </p>
+                  <p class="text-lg text-muted-foreground leading-relaxed">
+                    {service.longDescription}
+                  </p>
+                </div>
+
+                <div class="grid grid-cols-3 gap-4 p-6 rounded-2xl bg-card border border-border">
+                  <div>
+                    <div class="text-xs text-muted-foreground mb-1">Before</div>
+                    <div class="text-sm font-bold text-foreground">{service.stats.before}</div>
+                  </div>
+                  <div>
+                    <div class="text-xs text-muted-foreground mb-1">After</div>
+                    <div class="text-sm font-bold text-foreground">{service.stats.after}</div>
+                  </div>
+                  <div>
+                    <div class="text-xs text-muted-foreground mb-1">Result</div>
+                    <div class={`text-sm font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
+                      {service.stats.improvement}
+                    </div>
+                  </div>
+                </div>
+
+                <a
+                  href="/en/#contact"
+                  class={`inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r ${service.gradient} text-white font-semibold shadow-lg transition-all hover:scale-105 hover:shadow-xl`}
+                >
+                  {t.services.automation.cta}
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div class={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
+              <div class="relative group">
+                <div class={`absolute -inset-px rounded-3xl bg-gradient-to-r ${service.gradient} opacity-30 group-hover:opacity-50 transition-opacity duration-500 blur-xl`}></div>
+                <div class="relative rounded-3xl border border-border bg-card p-6 md:p-8 backdrop-blur-sm">
+                  <h3 class="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    What's included
+                  </h3>
+                  <ul class="space-y-4 mb-8">
+                    {service.features.map((feature) => (
+                      <li class="flex items-start gap-3">
+                        <div class={`mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center`}>
+                          <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <span class="text-sm text-muted-foreground">
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div class="pt-6 border-t border-border">
+                    <div class="text-xs text-muted-foreground mb-3">Tech stack</div>
+                    <div class="flex flex-wrap gap-2">
+                      {service.technologies.map((tech) => (
+                        <span class="inline-flex items-center rounded-lg border border-border bg-background px-3 py-1.5 text-sm font-medium text-primary">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section class="relative px-4 sm:px-6 py-16 md:py-32 lg:px-8">
+      <div class="mx-auto max-w-5xl">
+        <div class="text-center mb-16 md:mb-20">
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter mb-4 md:mb-6">
+            <span class="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">{t.services.process.title}</span>
+          </h2>
+          <p class="text-lg md:text-xl text-muted-foreground">
+            Agile and transparent methodology from day one
+          </p>
+        </div>
+
+        <div class="relative">
+          <div class="absolute left-4 sm:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-purple-500 to-primary"></div>
+
+          <div class="space-y-8 md:space-y-12">
+            {processSteps.map((step, idx) => (
+              <div class="relative pl-16 sm:pl-24">
+                <div class="absolute left-0 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-r from-primary to-purple-500 text-2xl sm:text-3xl">
+                  {['🔍', '📋', '⚡', '🚀'][idx]}
+                </div>
+                <div class="rounded-2xl border border-border bg-card p-4 sm:p-6 backdrop-blur-sm">
+                  <div class="text-xs text-primary font-bold mb-2">STEP {(idx + 1).toString().padStart(2, '0')}</div>
+                  <h3 class="text-xl md:text-2xl font-black text-foreground mb-3">{step.title}</h3>
+                  <p class="text-muted-foreground leading-relaxed">{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative px-4 sm:px-6 py-16 md:py-32 lg:px-8">
+      <div class="mx-auto max-w-4xl">
+        <div class="relative rounded-2xl md:rounded-3xl border-2 border-primary/20 bg-card p-6 sm:p-8 md:p-12 text-center overflow-hidden">
+          <MorphingBlob client:load className="hidden sm:block top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-15" color="#818CF8" size={400} />
+
+          <div class="relative z-10">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter mb-4 md:mb-6">
+              {t.services.cta.title}
+            </h2>
+            <p class="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto">
+              {t.services.cta.description}
+            </p>
+            <a
+              href="mailto:nestor@simiocodelabs.com"
+              class="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full bg-primary px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 text-sm sm:text-base md:text-lg font-semibold text-primary-foreground shadow-2xl transition-all hover:scale-105 w-full sm:w-auto max-w-full"
+            >
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span class="truncate">nestor@simiocodelabs.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

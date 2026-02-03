@@ -1,0 +1,153 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog', ({ data }) => {
+    return data.lang === 'en' && !data.draft;
+  });
+
+  return blogPosts.map((post) => {
+    const cleanSlug = post.slug.replace(/^(es|en)\//, '');
+    return {
+      params: { slug: cleanSlug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.image}
+  article={true}
+  lang="en"
+  publishedTime={post.data.publishDate.toISOString()}
+  author={post.data.author}
+>
+  <article class="mx-auto max-w-4xl px-6 py-16">
+    <header class="mb-12">
+      {post.data.image && (
+        <div class="aspect-video mb-8 rounded-lg overflow-hidden bg-muted">
+          <img
+            src={post.data.image}
+            alt={post.data.title}
+            class="w-full h-full object-cover"
+          />
+        </div>
+      )}
+      <div class="flex gap-2 mb-4">
+        {post.data.tags.map((tag) => (
+          <span class="inline-flex items-center rounded-md bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+            {tag}
+          </span>
+        ))}
+      </div>
+      <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl mb-4">
+        {post.data.title}
+      </h1>
+      <p class="text-xl text-muted-foreground mb-6">
+        {post.data.description}
+      </p>
+      <div class="flex items-center gap-4 text-sm text-muted-foreground">
+        <span>{post.data.author}</span>
+        <span>•</span>
+        <time datetime={post.data.publishDate.toISOString()}>
+          {new Date(post.data.publishDate).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </time>
+      </div>
+    </header>
+
+    <div class="prose prose-lg max-w-none">
+      <Content />
+    </div>
+
+    <footer class="mt-12 pt-8 border-t">
+      <a
+        href="/en/blog/"
+        class="inline-flex items-center text-sm font-semibold text-primary hover:text-primary/80"
+      >
+        ← Back to blog
+      </a>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .prose {
+    color: hsl(var(--foreground));
+  }
+
+  .prose h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose p {
+    margin-bottom: 1.25rem;
+    line-height: 1.75;
+  }
+
+  .prose a {
+    color: hsl(var(--primary));
+    text-decoration: underline;
+  }
+
+  .prose a:hover {
+    opacity: 0.8;
+  }
+
+  .prose ul, .prose ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose blockquote {
+    border-left: 4px solid hsl(var(--primary));
+    padding-left: 1.5rem;
+    font-style: italic;
+    color: hsl(var(--muted-foreground));
+    margin: 1.5rem 0;
+  }
+
+  .prose code {
+    background: hsl(var(--muted));
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+  }
+
+  .prose pre {
+    background: hsl(var(--muted));
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .prose pre code {
+    background: none;
+    padding: 0;
+  }
+</style>
