@@ -4,10 +4,10 @@
   command = "npm run build"
   publish = "dist"
 
-# Redirect www to non-www
+# Redirect www to non-www (when custom domain is configured)
 [[redirects]]
-  from = "https://www.simiocodelabs.com/*"
-  to = "https://simiocodelabs.com/:splat"
+  from = "https://www.simio-codelabs.netlify.app/*"
+  to = "https://simio-codelabs.netlify.app/:splat"
   status = 301
   force = true
 

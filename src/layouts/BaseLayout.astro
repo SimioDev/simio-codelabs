@@ -29,7 +29,7 @@ const {
   author
 } = Astro.props;
 
-const siteUrl = import.meta.env.SITE || 'https://simiocodelabs.com';
+const siteUrl = import.meta.env.SITE || 'https://simio-codelabs.netlify.app';
 const ogImage = image ? `${siteUrl}${image}` : `${siteUrl}/images/og-default.jpg`;
 
 const schemaOrg = generateOrganizationSchema(siteUrl);
