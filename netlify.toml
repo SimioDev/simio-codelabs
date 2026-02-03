@@ -1,0 +1,28 @@
+# Netlify Configuration for Simio CodeLabs
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Redirect www to non-www
+[[redirects]]
+  from = "https://www.simiocodelabs.com/*"
+  to = "https://simiocodelabs.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.simio-codelabs.netlify.app/*"
+  to = "https://simio-codelabs.netlify.app/:splat"
+  status = 301
+  force = true
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

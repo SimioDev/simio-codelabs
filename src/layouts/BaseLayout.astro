@@ -103,7 +103,11 @@ const alternateUrl = lang === 'es'
       }}
     />
 
+    <!-- Hreflang self-reference (current language) -->
+    <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+    <!-- Hreflang alternate (other language) -->
     <link rel="alternate" hreflang={lang === 'es' ? 'en' : 'es'} href={alternateUrl} />
+    <!-- Hreflang default -->
     <link rel="alternate" hreflang="x-default" href={siteUrl} />
 
     <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />

@@ -4,8 +4,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { MorphingBlob } from '@/components/ui/MorphingBlob';
 import { CustomCursor } from '@/components/ui/CustomCursor';
 
-const title = 'Blog de Desarrollo de Software | Tutoriales, Automatización y Mejores Prácticas';
-const description = 'Artículos sobre desarrollo de software, automatización de negocios, tecnología para PYMEs y mejores prácticas en programación. Guías prácticas y casos de uso reales.';
+const title = 'Blog de Desarrollo y Automatización | Simio CodeLabs';
+const description = 'Tutoriales sobre desarrollo de software, automatización de negocios, tecnología para PYMEs y mejores prácticas en programación. Guías prácticas, casos de uso reales y soluciones aplicables a tu negocio.';
 
 const allPosts = await getCollection('blog', ({ data }) => {
   return data.lang === 'es' && !data.draft;

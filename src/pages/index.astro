@@ -5,8 +5,8 @@ import { BentoGrid, BentoItem } from '@/components/ui/BentoGrid';
 import { MorphingBlob } from '@/components/ui/MorphingBlob';
 import { CustomCursor } from '@/components/ui/CustomCursor';
 
-const title = 'Simio CodeLabs - Desarrollo de Software a Medida | Automatización & E-commerce Colombia';
-const description = 'Desarrollo de software a medida en Colombia. Automatización de procesos, e-commerce, sistemas de gestión y landing pages. +5 años de experiencia, +20 proyectos completados.';
+const title = 'Desarrollo de Software a Medida en Colombia | Simio CodeLabs';
+const description = 'Desarrollo de software personalizado en Colombia. Automatización de procesos, e-commerce, sistemas de gestión y landing pages. +5 años de experiencia, +20 proyectos completados con resultados medibles.';
 
 const blogPosts = await getCollection('blog', ({ data }) => {
   return data.lang === 'es' && !data.draft;
@@ -102,9 +102,9 @@ const featuredProjects = portfolioItems.slice(0, 3);
             <div class="h-full flex flex-col justify-between">
               <div>
                 <div class="text-5xl mb-4">⚙️</div>
-                <h3 class="text-3xl font-bold mb-4">Automatización de Procesos</h3>
+                <h3 class="text-3xl font-bold mb-4">Automatización Inteligente</h3>
                 <p class="text-muted-foreground text-lg">
-                  Elimina tareas repetitivas y libera tiempo de tu equipo para actividades de alto valor.
+                  Elimina tareas repetitivas y libera tiempo de tu equipo para actividades estratégicas de alto valor.
                 </p>
               </div>
               <div class="flex flex-wrap gap-2 mt-6">
@@ -121,9 +121,9 @@ const featuredProjects = portfolioItems.slice(0, 3);
             <div class="h-full flex flex-col justify-between">
               <div>
                 <div class="text-5xl mb-4">🛒</div>
-                <h3 class="text-2xl font-bold mb-3">E-commerce</h3>
+                <h3 class="text-2xl font-bold mb-3">Tiendas Online</h3>
                 <p class="text-muted-foreground">
-                  Tiendas online optimizadas para conversión
+                  E-commerce optimizado para máxima conversión
                 </p>
               </div>
               <div class="mt-4">
@@ -137,9 +137,9 @@ const featuredProjects = portfolioItems.slice(0, 3);
             <div class="h-full flex flex-col justify-between">
               <div>
                 <div class="text-5xl mb-4">📊</div>
-                <h3 class="text-2xl font-bold mb-3">Sistemas de Gestión</h3>
+                <h3 class="text-2xl font-bold mb-3">Software de Gestión</h3>
                 <p class="text-muted-foreground">
-                  ERPs y CRMs que se adaptan a tu flujo
+                  ERPs y CRMs adaptados a tu flujo de trabajo
                 </p>
               </div>
             </div>
