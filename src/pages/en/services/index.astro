@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { MorphingBlob } from '@/components/ui/MorphingBlob';
 import { CustomCursor } from '@/components/ui/CustomCursor';
 import { useTranslations } from '@/i18n';
+import { Settings, ShoppingCart, Database, Rocket, Search, ClipboardList, Zap } from 'lucide-react';
 
 const t = useTranslations('en');
 
@@ -18,7 +19,7 @@ const services = [
     longDescription: t.services.automation.longDescription,
     features: t.services.automation.features,
     technologies: ['Python', 'Node.js', 'REST APIs', 'Zapier/Make', 'Celery'],
-    icon: '⚙️',
+    icon: 'settings',
     gradient: 'from-blue-500 to-cyan-500',
     stats: { before: '20h/week', after: '2h/week', improvement: '90% reduction' }
   },
@@ -30,7 +31,7 @@ const services = [
     longDescription: t.services.ecommerce.longDescription,
     features: t.services.ecommerce.features,
     technologies: ['Shopify', 'WooCommerce', 'React', 'Next.js', 'Stripe'],
-    icon: '🛒',
+    icon: 'shoppingCart',
     gradient: 'from-purple-500 to-pink-500',
     stats: { before: 'DM sales', after: '150+ orders/month', improvement: '300% increase' }
   },
@@ -42,7 +43,7 @@ const services = [
     longDescription: t.services.management.longDescription,
     features: t.services.management.features,
     technologies: ['React', 'Node.js', 'PostgreSQL', 'MongoDB', 'REST APIs'],
-    icon: '📊',
+    icon: 'database',
     gradient: 'from-green-500 to-emerald-500',
     stats: { before: 'Manual Excel', after: 'Automated system', improvement: '80% efficiency' }
   },
@@ -54,7 +55,7 @@ const services = [
     longDescription: t.services.landing.longDescription,
     features: t.services.landing.features,
     technologies: ['Astro', 'React', 'Tailwind CSS', 'GSAP', 'Vercel'],
-    icon: '🚀',
+    icon: 'rocket',
     gradient: 'from-orange-500 to-red-500',
     stats: { before: '1.5% conversion', after: '4.5% conversion', improvement: '200% improvement' }
   }
@@ -95,7 +96,12 @@ const processSteps = t.services.process.steps;
             <div class={index % 2 === 1 ? 'lg:col-start-2' : ''}>
               <div class="space-y-6">
                 <div>
-                  <div class="text-6xl md:text-7xl mb-6">{service.icon}</div>
+                  <div class="mb-6">
+                    {service.icon === 'settings' && <Settings className="w-12 h-12 text-primary" strokeWidth={1.5} />}
+                    {service.icon === 'shoppingCart' && <ShoppingCart className="w-10 h-10 text-primary" strokeWidth={1.5} />}
+                    {service.icon === 'database' && <Database className="w-10 h-10 text-primary" strokeWidth={1.5} />}
+                    {service.icon === 'rocket' && <Rocket className="w-12 h-12 text-primary" strokeWidth={1.5} />}
+                  </div>
                   <h2 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-foreground mb-4">
                     {service.title}
                   </h2>
@@ -196,8 +202,11 @@ const processSteps = t.services.process.steps;
           <div class="space-y-8 md:space-y-12">
             {processSteps.map((step, idx) => (
               <div class="relative pl-16 sm:pl-24">
-                <div class="absolute left-0 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-r from-primary to-purple-500 text-2xl sm:text-3xl">
-                  {['🔍', '📋', '⚡', '🚀'][idx]}
+                <div class="absolute left-0 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-r from-primary to-purple-500">
+                  {idx === 0 && <Search className="w-10 h-10 text-white" strokeWidth={1.5} />}
+                  {idx === 1 && <ClipboardList className="w-10 h-10 text-white" strokeWidth={1.5} />}
+                  {idx === 2 && <Zap className="w-10 h-10 text-white" strokeWidth={1.5} />}
+                  {idx === 3 && <Rocket className="w-12 h-12 text-white" strokeWidth={1.5} />}
                 </div>
                 <div class="rounded-2xl border border-border bg-card p-4 sm:p-6 backdrop-blur-sm">
                   <div class="text-xs text-primary font-bold mb-2">STEP {(idx + 1).toString().padStart(2, '0')}</div>

@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { MorphingBlob } from '@/components/ui/MorphingBlob';
 import { CustomCursor } from '@/components/ui/CustomCursor';
+import { Settings, ShoppingCart, Database, Rocket, Search, ClipboardList, Zap } from 'lucide-react';
 
 const title = 'Servicios de Desarrollo de Software | Simio CodeLabs';
 const description = 'Desarrollo de software personalizado: automatización de procesos, e-commerce optimizado, sistemas ERP/CRM a medida y landing pages de alta conversión. Consultoría gratuita. Soluciones escalables para tu negocio.';
@@ -21,7 +22,7 @@ const services = [
       'Notificaciones y alertas inteligentes'
     ],
     technologies: ['Python', 'Node.js', 'APIs REST', 'Zapier/Make', 'Celery'],
-    icon: '⚙️',
+    icon: 'settings',
     gradient: 'from-blue-500 to-cyan-500',
     stats: { before: '20h/semana', after: '2h/semana', improvement: '90% reducción' }
   },
@@ -40,7 +41,7 @@ const services = [
       'Integración con sistemas de envío'
     ],
     technologies: ['Shopify', 'WooCommerce', 'React', 'Next.js', 'Stripe'],
-    icon: '🛒',
+    icon: 'shoppingCart',
     gradient: 'from-purple-500 to-pink-500',
     stats: { before: 'Ventas por DM', after: '150+ pedidos/mes', improvement: '300% incremento' }
   },
@@ -59,7 +60,7 @@ const services = [
       'App móvil (opcional)'
     ],
     technologies: ['React', 'Node.js', 'PostgreSQL', 'MongoDB', 'APIs REST'],
-    icon: '📊',
+    icon: 'database',
     gradient: 'from-green-500 to-emerald-500',
     stats: { before: 'Excel manual', after: 'Sistema automatizado', improvement: '80% eficiencia' }
   },
@@ -78,7 +79,7 @@ const services = [
       'SEO on-page optimizado'
     ],
     technologies: ['Astro', 'React', 'Tailwind CSS', 'GSAP', 'Vercel'],
-    icon: '🚀',
+    icon: 'rocket',
     gradient: 'from-orange-500 to-red-500',
     stats: { before: '1.5% conversión', after: '4.5% conversión', improvement: '200% mejora' }
   }
@@ -117,7 +118,12 @@ const services = [
             <div class={index % 2 === 1 ? 'lg:col-start-2' : ''}>
               <div class="space-y-6">
                 <div>
-                  <div class="text-6xl md:text-7xl mb-6">{service.icon}</div>
+                  <div class="mb-6">
+                    {service.icon === 'settings' && <Settings className="w-12 h-12 text-primary" strokeWidth={1.5} />}
+                    {service.icon === 'shoppingCart' && <ShoppingCart className="w-10 h-10 text-primary" strokeWidth={1.5} />}
+                    {service.icon === 'database' && <Database className="w-10 h-10 text-primary" strokeWidth={1.5} />}
+                    {service.icon === 'rocket' && <Rocket className="w-12 h-12 text-primary" strokeWidth={1.5} />}
+                  </div>
                   <h2 class="text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter text-foreground mb-4">
                     {service.title}
                   </h2>
@@ -221,30 +227,33 @@ const services = [
                 step: '01',
                 title: 'Diagnóstico Gratuito',
                 description: 'Sesión de 30 minutos para entender tu operación y objetivos. Sin compromiso, sin costo.',
-                icon: '🔍'
+                icon: 'search'
               },
               {
                 step: '02',
                 title: 'Propuesta Técnica',
                 description: 'Documento detallado con alcance, tecnologías, timeline y presupuesto fijo. Total transparencia.',
-                icon: '📋'
+                icon: 'clipboardList'
               },
               {
                 step: '03',
                 title: 'Desarrollo Ágil',
                 description: 'Sprints semanales con demos y feedback continuo. Iteración rápida basada en métricas reales.',
-                icon: '⚡'
+                icon: 'zap'
               },
               {
                 step: '04',
                 title: 'Entrega + Soporte',
                 description: 'Capacitación del equipo, documentación completa y 30 días de soporte incluido.',
-                icon: '🚀'
+                icon: 'rocket'
               }
             ].map((item) => (
               <div class="relative pl-16 sm:pl-24">
-                <div class="absolute left-0 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-r from-primary to-purple-500 text-2xl sm:text-3xl">
-                  {item.icon}
+                <div class="absolute left-0 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-r from-primary to-purple-500">
+                  {item.icon === 'search' && <Search className="w-10 h-10 text-white" strokeWidth={1.5} />}
+                  {item.icon === 'clipboardList' && <ClipboardList className="w-10 h-10 text-white" strokeWidth={1.5} />}
+                  {item.icon === 'zap' && <Zap className="w-10 h-10 text-white" strokeWidth={1.5} />}
+                  {item.icon === 'rocket' && <Rocket className="w-12 h-12 text-white" strokeWidth={1.5} />}
                 </div>
                 <div class="rounded-2xl border border-border bg-card p-4 sm:p-6 backdrop-blur-sm">
                   <div class="text-xs text-primary font-bold mb-2">PASO {item.step}</div>

@@ -4,9 +4,11 @@ import { getCollection } from 'astro:content';
 import { BentoGrid, BentoItem } from '@/components/ui/BentoGrid';
 import { MorphingBlob } from '@/components/ui/MorphingBlob';
 import { CustomCursor } from '@/components/ui/CustomCursor';
+import FAQSection from '@/components/sections/FAQSection';
+import { Settings, ShoppingCart, Database, Rocket } from 'lucide-react';
 
 const title = 'Desarrollo de Software a Medida en Colombia | Simio CodeLabs';
-const description = 'Desarrollo de software personalizado en Colombia. Automatización de procesos, e-commerce, sistemas de gestión y landing pages. +5 años de experiencia, +20 proyectos completados con resultados medibles.';
+const description = 'Software que funciona, sin bullshit. Automatización, e-commerce y sistemas a medida. 5+ años resolviendo problemas reales de negocios en Colombia.';
 
 const blogPosts = await getCollection('blog', ({ data }) => {
   return data.lang === 'es' && !data.draft;
@@ -21,6 +23,33 @@ const recentPosts = blogPosts
   .slice(0, 3);
 
 const featuredProjects = portfolioItems.slice(0, 3);
+
+const faqs = [
+  {
+    question: '¿Cuánto cuesta un proyecto?',
+    answer: 'Depende totalmente del alcance. Un script de automatización simple puede costar desde $500, mientras que un e-commerce completo empieza en $3,000. Te doy presupuesto fijo después de una llamada gratuita donde entiendo qué necesitas. Sin sorpresas, sin costos ocultos.',
+  },
+  {
+    question: '¿Cuánto tiempo toma?',
+    answer: 'Un sistema de automatización básico: 1-2 semanas. Un e-commerce funcional: 3-4 semanas. Un ERP personalizado: 6-8 semanas. Trabajo en sprints semanales, así que ves avances cada 7 días. Si alguien te promete algo complejo en días, huye.',
+  },
+  {
+    question: '¿Solo trabajas con empresas grandes?',
+    answer: 'No. Principalmente trabajo con PYMEs y startups. No necesitas ser Google para tener buen software. Si tienes un problema real que resolver y presupuesto para solucionarlo, podemos trabajar juntos. Lo que NO hago: páginas baratas ni trabajo "por exposición".',
+  },
+  {
+    question: '¿Das soporte después de entregar?',
+    answer: 'Sí. Incluyo 30 días de soporte post-lanzamiento gratis (bugs, ajustes menores). Después puedes contratar soporte mensual o por horas. También te entrego documentación y código fuente completo, no te dejo atrapado.',
+  },
+  {
+    question: '¿Por qué debería contratarte en vez de usar una plantilla?',
+    answer: 'Las plantillas son geniales... si tu negocio es genérico. Si necesitas algo específico (integrar con tu sistema actual, automatizar TU proceso, no "un proceso"), necesitas código a medida. Además, con plantillas terminas pagando subscripciones eternas. Yo te vendo el software, tú lo posees.',
+  },
+  {
+    question: '¿Haces reuniones presenciales?',
+    answer: 'Trabajo 100% remoto. Tenemos calls por Google Meet cuando sea necesario, pero todo el trabajo es online. Así puedo trabajar con clientes en toda Colombia (y Latam) sin limitarme a una ciudad. Más flexibilidad, menos pérdida de tiempo en tráfico.',
+  },
+];
 ---
 
 <BaseLayout title={title} description={description} lang="es">
@@ -41,15 +70,15 @@ const featuredProjects = portfolioItems.slice(0, 3);
           </div>
 
           <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter leading-[1.1]">
-            <span class="block text-foreground">Tu negocio,</span>
+            <span class="block text-foreground">Tu Excel tiene</span>
             <span class="block bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">
-              optimizado
+              47 pestañas
             </span>
-            <span class="block text-foreground">con código</span>
+            <span class="block text-foreground">Ya es hora de automatizar eso.</span>
           </h1>
 
           <p class="max-w-2xl text-xl md:text-2xl text-muted-foreground leading-relaxed">
-            Transformo procesos manuales en <span class="text-foreground font-semibold">sistemas inteligentes</span> que escalan tu operación.
+            Desarrollo software que funciona. Sin plantillas genéricas, sin subscripciones eternas. Solo código que <span class="text-foreground font-semibold">resuelve tu problema específico</span>.
           </p>
 
           <div class="flex flex-col sm:flex-row items-start gap-4">
@@ -57,7 +86,7 @@ const featuredProjects = portfolioItems.slice(0, 3);
               href="#contacto"
               class="group relative inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-all hover:scale-105 hover:shadow-2xl hover:shadow-primary/50"
             >
-              Agenda Diagnóstico Gratuito
+              Hablemos (es gratis)
               <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
@@ -66,7 +95,7 @@ const featuredProjects = portfolioItems.slice(0, 3);
               href="/portafolio/"
               class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-border bg-background px-8 py-4 text-lg font-semibold transition-all hover:border-primary hover:bg-muted"
             >
-              Ver Proyectos
+              Ver qué he hecho
             </a>
           </div>
 
@@ -101,7 +130,9 @@ const featuredProjects = portfolioItems.slice(0, 3);
           <BentoItem client:load delay={0} span="double">
             <div class="h-full flex flex-col justify-between">
               <div>
-                <div class="text-5xl mb-4">⚙️</div>
+                <div class="mb-4">
+                  <Settings className="w-12 h-12 text-primary" strokeWidth={1.5} />
+                </div>
                 <h3 class="text-3xl font-bold mb-4">Automatización Inteligente</h3>
                 <p class="text-muted-foreground text-lg">
                   Elimina tareas repetitivas y libera tiempo de tu equipo para actividades estratégicas de alto valor.
@@ -120,7 +151,9 @@ const featuredProjects = portfolioItems.slice(0, 3);
           <BentoItem client:load delay={0.1}>
             <div class="h-full flex flex-col justify-between">
               <div>
-                <div class="text-5xl mb-4">🛒</div>
+                <div class="mb-4">
+                  <ShoppingCart className="w-10 h-10 text-primary" strokeWidth={1.5} />
+                </div>
                 <h3 class="text-2xl font-bold mb-3">Tiendas Online</h3>
                 <p class="text-muted-foreground">
                   E-commerce optimizado para máxima conversión
@@ -132,7 +165,9 @@ const featuredProjects = portfolioItems.slice(0, 3);
           <BentoItem client:load delay={0.2}>
             <div class="h-full flex flex-col justify-between">
               <div>
-                <div class="text-5xl mb-4">📊</div>
+                <div class="mb-4">
+                  <Database className="w-10 h-10 text-primary" strokeWidth={1.5} />
+                </div>
                 <h3 class="text-2xl font-bold mb-3">Software de Gestión</h3>
                 <p class="text-muted-foreground">
                   ERPs y CRMs adaptados a tu flujo de trabajo
@@ -144,7 +179,9 @@ const featuredProjects = portfolioItems.slice(0, 3);
           <BentoItem client:load delay={0.3} span="double">
             <div class="h-full flex flex-col justify-between">
               <div>
-                <div class="text-5xl mb-4">🚀</div>
+                <div class="mb-4">
+                  <Rocket className="w-12 h-12 text-primary" strokeWidth={1.5} />
+                </div>
                 <h3 class="text-3xl font-bold mb-4">Landing Pages de Alta Conversión</h3>
                 <p class="text-muted-foreground text-lg">
                   Páginas diseñadas específicamente para convertir visitantes en clientes. Diseño persuasivo y analítica integrada.
@@ -230,6 +267,8 @@ const featuredProjects = portfolioItems.slice(0, 3);
         </div>
       </section>
     )}
+
+    <FAQSection client:load faqs={faqs} lang="es" />
 
     <section id="contacto" class="relative px-4 sm:px-6 py-16 md:py-32 lg:px-8">
       <div class="mx-auto max-w-4xl">
