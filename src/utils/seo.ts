@@ -71,7 +71,7 @@ export function generateOrganizationSchema(siteUrl: string) {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Service',
-      email: 'nestor@simiocodelabs.com',
+      email: 'nestcdev@gmail.com',
       availableLanguage: ['Spanish', 'English'],
     },
     sameAs: [
