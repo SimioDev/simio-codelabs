@@ -24,8 +24,8 @@ export default function LanguageSwitcher({ currentLocale, currentPath }: Languag
   };
 
   const languages = [
-    { code: 'es' as Locale, name: 'Español', flag: '🇪🇸' },
-    { code: 'en' as Locale, name: 'English', flag: '🇺🇸' },
+    { code: 'es' as Locale, name: 'Español', flag: '🇪🇸', title: 'Cambiar idioma a Español' },
+    { code: 'en' as Locale, name: 'English', flag: '🇺🇸', title: 'Switch language to English' },
   ];
 
   const currentLanguage = languages.find(lang => lang.code === currentLocale) || languages[0];
@@ -69,6 +69,7 @@ export default function LanguageSwitcher({ currentLocale, currentPath }: Languag
                       : 'text-foreground'
                   }`}
                   onClick={() => setIsOpen(false)}
+                  title={lang.title}
                 >
                   <span className="text-lg">{lang.flag}</span>
                   <span>{lang.name}</span>

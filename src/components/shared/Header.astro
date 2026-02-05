@@ -11,18 +11,18 @@ const baseUrl = isEnglish ? '/en' : '';
 
 const navigation = isEnglish
   ? [
-      { name: 'Home', href: '/en/' },
-      { name: 'Services', href: '/en/services/' },
-      { name: 'Portfolio', href: '/en/portfolio/' },
-      { name: 'Blog', href: '/en/blog/' },
-      { name: 'About', href: '/en/about/' },
+      { name: 'Home', href: '/en/', title: 'Go to home page' },
+      { name: 'Services', href: '/en/services/', title: 'View our custom software services' },
+      { name: 'Portfolio', href: '/en/portfolio/', title: 'See completed projects and success stories' },
+      { name: 'Blog', href: '/en/blog/', title: 'Read articles about automation and development' },
+      { name: 'About', href: '/en/about/', title: 'Learn more about Nestor Cabrera' },
     ]
   : [
-      { name: 'Inicio', href: '/' },
-      { name: 'Servicios', href: '/servicios/' },
-      { name: 'Portafolio', href: '/portafolio/' },
-      { name: 'Blog', href: '/blog/' },
-      { name: 'Sobre Mí', href: '/sobre/' },
+      { name: 'Inicio', href: '/', title: 'Ir a la página de inicio' },
+      { name: 'Servicios', href: '/servicios/', title: 'Conocer nuestros servicios de software a medida' },
+      { name: 'Portafolio', href: '/portafolio/', title: 'Ver proyectos completados y casos de éxito' },
+      { name: 'Blog', href: '/blog/', title: 'Leer artículos sobre automatización y desarrollo' },
+      { name: 'Sobre Mí', href: '/sobre/', title: 'Conocer más sobre Nestor Cabrera' },
     ];
 
 const isActive = (path: string) => {
@@ -37,7 +37,7 @@ const isActive = (path: string) => {
   <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8" aria-label="Global">
     <!-- Logo -->
     <div class="flex lg:flex-1">
-      <a href={baseUrl + '/'} class="-m-1.5 p-1.5 group">
+      <a href={baseUrl + '/'} class="-m-1.5 p-1.5 group" title={isEnglish ? "Go to home page" : "Ir a la página de inicio"}>
         <span class="text-xl font-black text-foreground group-hover:text-primary transition-colors">
           Simio <span class="text-primary">CodeLabs</span>
         </span>
@@ -68,6 +68,7 @@ const isActive = (path: string) => {
               ? 'text-primary'
               : 'text-muted-foreground'
           }`}
+          title={item.title}
         >
           {item.name}
         </a>
@@ -81,6 +82,7 @@ const isActive = (path: string) => {
       <a
         href={baseUrl + '/#contacto'}
         class="rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
+        title={isEnglish ? "Get in touch for a free consultation" : "Contactar para consulta gratuita"}
       >
         {isEnglish ? 'Contact' : 'Contactar'}
       </a>
@@ -98,6 +100,7 @@ const isActive = (path: string) => {
               ? 'text-primary bg-muted'
               : 'text-foreground'
           }`}
+          title={item.title}
         >
           {item.name}
         </a>
@@ -110,6 +113,7 @@ const isActive = (path: string) => {
         <a
           href={baseUrl + '/#contacto'}
           class="block rounded-md bg-primary px-4 py-2 text-center text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90"
+          title={isEnglish ? "Get in touch for a free consultation" : "Contactar para consulta gratuita"}
         >
           {isEnglish ? 'Contact' : 'Contactar'}
         </a>

@@ -28,11 +28,11 @@ const featuredProjects = portfolioItems.slice(0, 3);
 ---
 
 <BaseLayout title={title} description={description} lang="en">
-  <CustomCursor client:load />
+  <CustomCursor client:media="(min-width: 1024px)" />
 
   <div class="min-h-screen bg-background gradient-mesh">
     <section class="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-16 sm:py-20 overflow-hidden">
-      <MorphingBlob client:load className="hidden lg:block top-0 left-0 opacity-20" color="#A78BFA" size={500} />
+      <MorphingBlob client:visible className="hidden lg:block top-0 left-0 opacity-20" color="#A78BFA" size={500} />
 
       <div class="relative z-10 mx-auto max-w-7xl w-full">
         <div class="space-y-12 max-w-3xl">
@@ -44,12 +44,12 @@ const featuredProjects = portfolioItems.slice(0, 3);
             Available for new projects
           </div>
 
-          <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter leading-[1.1]">
-            <span class="block text-foreground">{t.home.hero.title}</span>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[1.1]">
+            <span class="block text-foreground">Custom Software Development</span>
             <span class="block bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">
-              {t.home.hero.subtitle}
+              Process Automation
             </span>
-            <span class="block text-foreground">for your business</span>
+            <span class="block text-foreground">and Web Systems</span>
           </h1>
 
           <p class="max-w-2xl text-xl md:text-2xl text-muted-foreground leading-relaxed">
@@ -60,8 +60,9 @@ const featuredProjects = portfolioItems.slice(0, 3);
             <a
               href="#contact"
               class="group relative inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-all hover:scale-105 hover:shadow-2xl hover:shadow-primary/50"
+              title="Schedule free 30-minute consultation"
             >
-              {t.home.cta.button}
+              Let's talk (it's free)
               <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
@@ -69,8 +70,9 @@ const featuredProjects = portfolioItems.slice(0, 3);
             <a
               href="/en/portfolio/"
               class="inline-flex items-center justify-center gap-2 rounded-full border-2 border-border bg-background px-8 py-4 text-lg font-semibold transition-all hover:border-primary hover:bg-muted"
+              title="See success stories and completed projects"
             >
-              {t.home.hero.cta}
+              See what I've done
             </a>
           </div>
 
@@ -101,8 +103,8 @@ const featuredProjects = portfolioItems.slice(0, 3);
           </p>
         </div>
 
-        <BentoGrid client:load>
-          <BentoItem client:load delay={0} span="double">
+        <BentoGrid client:visible>
+          <BentoItem client:visible delay={0} span="double">
             <div class="h-full flex flex-col justify-between">
               <div>
                 <div class="mb-4"><Settings className="w-12 h-12 text-primary" strokeWidth={1.5} /></div>
@@ -121,7 +123,7 @@ const featuredProjects = portfolioItems.slice(0, 3);
             </div>
           </BentoItem>
 
-          <BentoItem client:load delay={0.1}>
+          <BentoItem client:visible delay={0.1}>
             <div class="h-full flex flex-col justify-between">
               <div>
                 <div class="mb-4"><ShoppingCart className="w-10 h-10 text-primary" strokeWidth={1.5} /></div>
@@ -133,7 +135,7 @@ const featuredProjects = portfolioItems.slice(0, 3);
             </div>
           </BentoItem>
 
-          <BentoItem client:load delay={0.2}>
+          <BentoItem client:visible delay={0.2}>
             <div class="h-full flex flex-col justify-between">
               <div>
                 <div class="mb-4"><Database className="w-10 h-10 text-primary" strokeWidth={1.5} /></div>
@@ -145,7 +147,7 @@ const featuredProjects = portfolioItems.slice(0, 3);
             </div>
           </BentoItem>
 
-          <BentoItem client:load delay={0.3} span="double">
+          <BentoItem client:visible delay={0.3} span="double">
             <div class="h-full flex flex-col justify-between">
               <div>
                 <div class="mb-4"><Rocket className="w-12 h-12 text-primary" strokeWidth={1.5} /></div>
@@ -172,6 +174,7 @@ const featuredProjects = portfolioItems.slice(0, 3);
           <a
             href="/en/services/"
             class="inline-flex items-center gap-2 text-lg font-semibold text-primary hover:text-primary/80 transition-colors group"
+            title="Learn about all custom software development services"
           >
             View all services
             <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -199,6 +202,7 @@ const featuredProjects = portfolioItems.slice(0, 3);
               <a
                 href={`/en/portfolio/${project.slug.replace(/^(es|en)\//, '')}/`}
                 class="group relative rounded-3xl border border-border bg-card overflow-hidden transition-all hover:border-primary/50 hover:scale-[1.02] hover:shadow-2xl"
+                title={`View success story: ${project.data.title}`}
               >
                 {project.data.image ? (
                   <div class="aspect-video overflow-hidden bg-muted relative">
@@ -206,6 +210,10 @@ const featuredProjects = portfolioItems.slice(0, 3);
                       src={project.data.image}
                       alt={project.data.title}
                       class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                      decoding="async"
+                      width="800"
+                      height="450"
                     />
                     <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60"></div>
                   </div>
@@ -238,7 +246,7 @@ const featuredProjects = portfolioItems.slice(0, 3);
     <section id="contact" class="relative px-4 sm:px-6 py-16 md:py-32 lg:px-8">
       <div class="mx-auto max-w-4xl">
         <div class="relative rounded-2xl md:rounded-3xl border-2 border-primary/20 bg-card p-6 sm:p-8 md:p-12 text-center overflow-hidden">
-          <MorphingBlob client:load className="hidden sm:block top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" color="#818CF8" size={400} />
+          <MorphingBlob client:visible className="hidden sm:block top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20" color="#818CF8" size={400} />
 
           <div class="relative z-10">
             <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter mb-4 md:mb-6">
@@ -250,6 +258,7 @@ const featuredProjects = portfolioItems.slice(0, 3);
             <a
               href="mailto:nestcdev@gmail.com"
               class="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-full bg-primary px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 text-sm sm:text-base md:text-lg font-semibold text-primary-foreground shadow-2xl transition-all hover:scale-105 hover:shadow-primary/50 w-full sm:w-auto max-w-full"
+              title="Send email to schedule free consultation"
             >
               <svg class="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

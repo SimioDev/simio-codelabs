@@ -18,28 +18,32 @@ export const BentoItem = ({ children, className = '', delay = 0, span = 'single'
   useEffect(() => {
     if (!ref.current) return;
 
-    gsap.fromTo(
-      ref.current,
-      {
-        opacity: 0,
-        scale: 0.98,
-        y: 30
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        duration: 0.8,
-        delay,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: ref.current,
-          start: 'top 85%',
-          end: 'top 20%',
-          toggleActions: 'play none none none'
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ref.current,
+        {
+          opacity: 0,
+          scale: 0.96,
+          y: 20
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 1.2,
+          delay,
+          ease: 'expo.out',
+          scrollTrigger: {
+            trigger: ref.current,
+            start: 'top 90%',
+            toggleActions: 'play none none none',
+            once: true
+          }
         }
-      }
-    );
+      );
+    });
+
+    return () => ctx.revert();
   }, [delay]);
 
   const spanClasses = {

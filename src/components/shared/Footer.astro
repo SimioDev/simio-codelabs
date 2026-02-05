@@ -8,32 +8,35 @@ const baseUrl = isEnglish ? '/en' : '';
 const navigation = {
   main: isEnglish
     ? [
-        { name: 'Services', href: '/en/services/' },
-        { name: 'Portfolio', href: '/en/portfolio/' },
-        { name: 'Blog', href: '/en/blog/' },
-        { name: 'About', href: '/en/about/' },
+        { name: 'Services', href: '/en/services/', title: 'View our custom software services' },
+        { name: 'Portfolio', href: '/en/portfolio/', title: 'See completed projects and success stories' },
+        { name: 'Blog', href: '/en/blog/', title: 'Read articles about automation and development' },
+        { name: 'About', href: '/en/about/', title: 'Learn more about Nestor Cabrera' },
       ]
     : [
-        { name: 'Servicios', href: '/servicios/' },
-        { name: 'Portafolio', href: '/portafolio/' },
-        { name: 'Blog', href: '/blog/' },
-        { name: 'Sobre Mí', href: '/sobre/' },
+        { name: 'Servicios', href: '/servicios/', title: 'Conocer nuestros servicios de software a medida' },
+        { name: 'Portafolio', href: '/portafolio/', title: 'Ver proyectos completados y casos de éxito' },
+        { name: 'Blog', href: '/blog/', title: 'Leer artículos sobre automatización y desarrollo' },
+        { name: 'Sobre Mí', href: '/sobre/', title: 'Conocer más sobre Nestor Cabrera' },
       ],
   social: [
     {
       name: 'GitHub',
       href: 'https://github.com/SimioDev',
       icon: 'github',
+      title: 'Ver perfil de GitHub de SimioDev',
     },
     {
       name: 'LinkedIn',
       href: 'https://www.linkedin.com/in/nestor-cabrera',
       icon: 'linkedin',
+      title: 'Conectar en LinkedIn con Nestor Cabrera',
     },
     {
       name: 'Portfolio',
       href: 'https://simiodev-portfolio.vercel.app/',
       icon: 'portfolio',
+      title: 'Visitar portafolio personal de SimioDev',
     },
   ],
 };
@@ -63,6 +66,7 @@ const currentYear = new Date().getFullYear();
               rel="noopener noreferrer"
               class="text-muted-foreground hover:text-primary transition-colors"
               aria-label={item.name}
+              title={item.title}
             >
               {item.icon === 'github' && (
                 <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -96,6 +100,7 @@ const currentYear = new Date().getFullYear();
                   <a
                     href={item.href}
                     class="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    title={item.title}
                   >
                     {item.name}
                   </a>
@@ -110,22 +115,22 @@ const currentYear = new Date().getFullYear();
             </h3>
             <ul class="space-y-3">
               <li>
-                <a href={baseUrl + '/servicios/#automatizacion'} class="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <a href={baseUrl + '/servicios/#automatizacion'} class="text-sm text-muted-foreground hover:text-primary transition-colors" title={isEnglish ? 'Learn about process automation services' : 'Conocer servicio de automatización de procesos'}>
                   {isEnglish ? 'Process Automation' : 'Automatización'}
                 </a>
               </li>
               <li>
-                <a href={baseUrl + '/servicios/#ecommerce'} class="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <a href={baseUrl + '/servicios/#ecommerce'} class="text-sm text-muted-foreground hover:text-primary transition-colors" title={isEnglish ? 'Custom e-commerce solutions' : 'Soluciones de e-commerce a medida'}>
                   E-commerce
                 </a>
               </li>
               <li>
-                <a href={baseUrl + '/servicios/#sistemas'} class="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <a href={baseUrl + '/servicios/#sistemas'} class="text-sm text-muted-foreground hover:text-primary transition-colors" title={isEnglish ? 'ERP and CRM management systems' : 'Sistemas de gestión ERP y CRM'}>
                   {isEnglish ? 'Management Systems' : 'Sistemas de Gestión'}
                 </a>
               </li>
               <li>
-                <a href={baseUrl + '/servicios/#landing'} class="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <a href={baseUrl + '/servicios/#landing'} class="text-sm text-muted-foreground hover:text-primary transition-colors" title={isEnglish ? 'High-conversion landing pages' : 'Landing pages de alta conversión'}>
                   Landing Pages
                 </a>
               </li>
@@ -138,12 +143,12 @@ const currentYear = new Date().getFullYear();
             </h3>
             <ul class="space-y-3">
               <li>
-                <a href="mailto:nestcdev@gmail.com" class="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <a href="mailto:nestcdev@gmail.com" class="text-sm text-muted-foreground hover:text-primary transition-colors" title={isEnglish ? 'Send email to nestcdev@gmail.com' : 'Enviar correo a nestcdev@gmail.com'}>
                   nestcdev@gmail.com
                 </a>
               </li>
               <li>
-                <a href={baseUrl + '/#contacto'} class="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <a href={baseUrl + '/#contacto'} class="text-sm text-muted-foreground hover:text-primary transition-colors" title={isEnglish ? 'Schedule free 30-minute consultation' : 'Agendar consulta gratuita de 30 minutos'}>
                   {isEnglish ? 'Free Consultation' : 'Consulta Gratuita'}
                 </a>
               </li>
