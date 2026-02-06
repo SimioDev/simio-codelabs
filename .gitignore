@@ -40,3 +40,6 @@ pnpm-debug.log*
 # OS generated files
 Thumbs.db
 Desktop.ini
+
+# Private strategy files
+INSTAGRAM_STRATEGY.md

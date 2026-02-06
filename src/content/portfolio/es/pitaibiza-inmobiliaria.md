@@ -5,7 +5,7 @@ client: "Pitaibiza Inmobiliaria"
 industry: "Bienes Raíces"
 technologies: ["WordPress", "Elementor", "JavaScript", "Swiper", "Google Maps API", "Wompi Payment Gateway"]
 year: 2024
-image: "/images/portfolio/pitaibiza.png"
+image: "/images/portfolio/pitaibiza.webp"
 url: "https://pitaibizainmobiliaria.com.co"
 metrics:
   before: "Gestión manual de propiedades"

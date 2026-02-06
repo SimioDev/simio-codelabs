@@ -1,0 +1,33 @@
+---
+/**
+ * Google Analytics 4 Component
+ *
+ * Para activar Analytics:
+ * 1. Crea una propiedad GA4 en https://analytics.google.com
+ * 2. Copia el Measurement ID (formato: G-XXXXXXXXXX)
+ * 3. Agrega al archivo .env:
+ *    PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+ */
+
+const measurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+const isDev = import.meta.env.DEV;
+
+// No cargar Analytics en desarrollo
+const shouldLoadAnalytics = measurementId && !isDev;
+---
+
+{shouldLoadAnalytics && (
+  <>
+    <!-- Google tag (gtag.js) -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
+    <script define:vars={{ measurementId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', measurementId, {
+        page_path: window.location.pathname,
+        anonymize_ip: true, // Anonimiza IPs para GDPR
+      });
+    </script>
+  </>
+)}

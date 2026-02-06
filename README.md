@@ -1,96 +1,85 @@
-# Simio CodeLabs - Sitio Web Profesional
+# Simio CodeLabs 💻
 
-Sitio web profesional desarrollado con Astro + React + Tailwind CSS para Simio CodeLabs.
+**Software a Medida que Funciona**
 
-## 🚀 Stack Tecnológico
+Desarrollo de software personalizado en Colombia. Automatización de procesos, e-commerce, sistemas de gestión y landing pages de alta conversión.
 
-- **Framework:** Astro 5.17
-- **UI Framework:** React 19
-- **Estilos:** Tailwind CSS 3.4 + CSS Variables
-- **Animaciones:** GSAP 3.14 + Framer Motion
-- **3D:** Three.js + React Three Fiber
-- **CMS:** Decap CMS (Git-based)
-- **i18n:** Sistema bilingüe ES/EN
-- **SEO:** astro-seo + Schema.org
+🌐 **[simio-codelabs.netlify.app](https://simio-codelabs.netlify.app)**
 
-## 📦 Instalación
+---
 
-```bash
-# Instalar dependencias
-pnpm install
+## 🚀 Qué Hacemos
 
-# Desarrollo
-pnpm dev
+Creamos software a medida que resuelve problemas reales de negocios. Sin plantillas genéricas, sin suscripciones eternas. Solo código que funciona para tu caso específico.
 
-# Desarrollo con CMS local
-pnpm dev:cms
+### Servicios
 
-# Construir para producción
-pnpm build
+- **⚡ Automatización de Procesos**
+  Convierte procesos manuales en flujos automáticos. Python, Node.js, integración con APIs.
 
-# Vista previa
-pnpm preview
-```
+- **🛒 E-commerce a Medida**
+  Tiendas online personalizadas. Sin limitaciones de plantillas, con las funcionalidades exactas que necesitas.
 
-## 📁 Estructura del Proyecto
+- **📊 Sistemas de Gestión (ERP/CRM)**
+  Software adaptado a tu flujo de trabajo. Gestión de inventario, clientes, facturación y más.
 
-```
-src/
-├── components/
-│   ├── ui/              # Componentes UI (Button, Card, etc.)
-│   ├── animations/      # Wrappers de animación
-│   └── shared/          # Header, Footer
-├── content/             # Content Collections
-│   ├── blog/
-│   │   ├── es/
-│   │   └── en/
-│   └── portfolio/
-│       ├── es/
-│       └── en/
-├── layouts/
-│   └── BaseLayout.astro # Layout base con SEO
-├── locales/             # Traducciones i18n
-├── pages/               # Rutas del sitio
-├── styles/
-│   └── globals.css      # Estilos globales
-└── utils/               # Utilidades (SEO, i18n, etc.)
+- **🎯 Landing Pages de Alta Conversión**
+  Páginas optimizadas para convertir visitantes en clientes. Diseño moderno, carga rápida, SEO optimizado.
 
-public/
-├── admin/              # Decap CMS
-└── images/             # Assets estáticos
-```
+---
 
-## 🌐 Internacionalización
+## 📊 Números que Importan
 
-- **Español (default):** `/` → `/servicios/` → `/blog/`
-- **Inglés:** `/en/` → `/en/services/` → `/en/blog/`
+- **5+ años** de experiencia en desarrollo
+- **20+ proyectos** completados con éxito
+- **90% de eficiencia** promedio en automatizaciones
+- **Clientes en Colombia** y Latinoamérica
 
-Traducciones en `src/locales/{es,en}/*.json`
+---
 
-## 📊 CMS (Decap CMS)
+## 💡 Por Qué Simio CodeLabs
 
-### Configuración para Producción
+### ✅ Lo que SÍ haces con nosotros:
+- Obtienes software que posees (código fuente incluido)
+- Recibes soluciones a medida para TU negocio
+- Trabajas con comunicación directa y transparente
+- Ves avances cada semana (metodología ágil)
+- Tienes 30 días de soporte post-lanzamiento gratis
 
-1. Actualiza el repo en `public/admin/config.yml`:
-   ```yaml
-   backend:
-     repo: tu-usuario/tu-repo
-   ```
+---
 
-2. Configura OAuth en GitHub:
-   - Crea una GitHub OAuth App
-   - Añade las credenciales en Vercel
+## 🛠️ Stack Tecnológico
 
-3. Accede al CMS en: `https://tu-dominio.com/admin/`
+**Frontend:** React, Astro, Tailwind CSS, GSAP
+**Backend:** Node.js, Python, PHP
+**Bases de Datos:** PostgreSQL, MySQL, MongoDB
+**Cloud & Deployment:** Netlify, Vercel, AWS
+**Automatización:** Python, Selenium, APIs REST
 
-### Desarrollo Local
+---
 
-```bash
-pnpm dev:cms
-```
+## 📞 ¿Hablamos?
 
-Accede a `http://localhost:3000/admin/` (sin autenticación)
+Si tienes un problema que el software puede resolver, conversemos.
 
-## 📄 Licencia
+**Email:** [nestcdev@gmail.com](mailto:nestcdev@gmail.com)
+**Consulta Gratuita:** 30 minutos, sin compromiso, sin costo.
 
-© 2026 Simio CodeLabs - Todos los derechos reservados
+---
+
+## 🌍 Ubicación
+
+**🇨🇴 Colombia** | Trabajo 100% remoto con clientes en toda Latinoamérica
+
+---
+
+## 📱 Síguenos
+
+- **GitHub:** [@SimioDev](https://github.com/SimioDev)
+- **LinkedIn:** [Nestor Cabrera](https://www.linkedin.com/in/nestor-cabrera)
+- **Portfolio:** [simiodev-portfolio.vercel.app](https://simiodev-portfolio.vercel.app/)
+
+---
+
+**© 2026 Simio CodeLabs** - Todos los derechos reservados
+Desarrollado por Nestor Cabrera

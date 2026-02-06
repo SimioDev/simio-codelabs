@@ -5,7 +5,7 @@ client: "Tubivalsas"
 industry: "Distribución Industrial"
 technologies: ["Astro", "React", "TypeScript", "Tailwind CSS", "Google Ads", "WhatsApp Business API"]
 year: 2024
-image: "/images/portfolio/tubivalsas.png"
+image: "/images/portfolio/tubivalsas.webp"
 url: "https://tubivalsas.com.co"
 metrics:
   before: "Difícil darse a conocer"

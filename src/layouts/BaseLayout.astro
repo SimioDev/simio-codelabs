@@ -5,6 +5,7 @@ import { generateOrganizationSchema, generateWebsiteSchema } from '@/utils/seo';
 import Header from '@/components/shared/Header.astro';
 import Footer from '@/components/shared/Footer.astro';
 import { Spotlight } from '@/components/ui/Spotlight';
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics.astro';
 import '@/styles/globals.css';
 
 interface Props {
@@ -30,7 +31,7 @@ const {
 } = Astro.props;
 
 const siteUrl = import.meta.env.SITE || 'https://simio-codelabs.netlify.app';
-const ogImage = image ? `${siteUrl}${image}` : `${siteUrl}/images/og-default.jpg`;
+const ogImage = image ? `${siteUrl}${image}` : `${siteUrl}/images/og-default.webp`;
 
 const schemaOrg = generateOrganizationSchema(siteUrl);
 const websiteSchema = generateWebsiteSchema(siteUrl);
@@ -121,6 +122,8 @@ const alternateUrl = lang === 'es'
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <GoogleAnalytics />
   </head>
   <body>
     <Spotlight client:visible />
