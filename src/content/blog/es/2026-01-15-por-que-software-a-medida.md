@@ -14,8 +14,7 @@ tags:
 draft: false
 lang: es
 ---
-
-# Por qué tu PYME necesita software a medida (y no una plantilla)
+# Por qué tu PYME necesita software a medida (y no una plantilla) Nestor
 
 Cada semana recibo la misma pregunta: *"¿Por qué debería pagar por software a medida cuando hay plantillas gratis?"*
 
@@ -29,19 +28,19 @@ Las plantillas y soluciones genéricas están diseñadas para el "promedio". El 
 
 Un cliente vino con una "solución" que había comprado: un sistema ERP genérico de $500/mes. El problema:
 
-- **No se adaptaba a su flujo de inventario** (manejaban productos perecederos con lógica FIFO compleja)
-- **Requería 3 horas diarias de trabajo manual** para "adaptar" los datos
-- **El proveedor tardaba semanas** en responder solicitudes de personalización
-- **Pagaba por funciones que nunca usaba** (el 80% del sistema era innecesario)
+* **No se adaptaba a su flujo de inventario** (manejaban productos perecederos con lógica FIFO compleja)
+* **Requería 3 horas diarias de trabajo manual** para "adaptar" los datos
+* **El proveedor tardaba semanas** en responder solicitudes de personalización
+* **Pagaba por funciones que nunca usaba** (el 80% del sistema era innecesario)
 
 ### La solución a medida
 
 Diseñamos un sistema específico para su operación:
 
-- **Lógica FIFO automática** que consideraba fechas de vencimiento
-- **Integración directa con sus proveedores** vía API
-- **Alertas personalizadas** basadas en sus métricas reales
-- **Costo único de desarrollo** + hosting de $50/mes
+* **Lógica FIFO automática** que consideraba fechas de vencimiento
+* **Integración directa con sus proveedores** vía API
+* **Alertas personalizadas** basadas en sus métricas reales
+* **Costo único de desarrollo** + hosting de $50/mes
 
 **Resultado:** De 20 horas semanales de trabajo manual a 2 horas. ROI en 4 meses.
 
@@ -78,10 +77,10 @@ Mi enfoque no es "venderte" software. Es **resolver tu problema específico**:
 
 Soy honesto: no siempre necesitas desarrollo custom. Usa plantillas/SaaS si:
 
-- **Estás empezando** y necesitas validar tu modelo de negocio
-- **El proceso es estándar** (ej: enviar newsletters, programar reuniones)
-- **El costo de "adaptarte" es bajo** (ajustar tu flujo no afecta tu operación)
-- **El proveedor es responsive** y agrega las funciones que necesitas
+* **Estás empezando** y necesitas validar tu modelo de negocio
+* **El proceso es estándar** (ej: enviar newsletters, programar reuniones)
+* **El costo de "adaptarte" es bajo** (ajustar tu flujo no afecta tu operación)
+* **El proveedor es responsive** y agrega las funciones que necesitas
 
 ## Conclusión: El software es una herramienta, no un fin
 
@@ -89,7 +88,7 @@ El objetivo no es "tener software bonito". Es **optimizar tu operación para esc
 
 Si tu software actual te hace más lento (en vez de más rápido), algo está mal.
 
----
+- - -
 
 **¿Tu negocio está listo para software que realmente trabaje para ti?**
 
