@@ -1,5 +1,5 @@
 ---
-title: Cómo automaticé el inventario de mi cliente en 2 semanas
+title: Cómo automaticé el inventario de mi cliente en un mes
 description: Case study de cómo transformamos 20 horas semanales de trabajo
   manual en Excel a un sistema automatizado. Lecciones aprendidas y ROI real.
 publishDate: 2026-01-22
