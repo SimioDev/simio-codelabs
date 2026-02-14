@@ -88,15 +88,7 @@ export function generateWebsiteSchema(siteUrl: string) {
     name: 'Simio CodeLabs',
     url: siteUrl,
     description: 'Desarrollo de software a medida, automatización de procesos y soluciones tecnológicas para empresas.',
-    inLanguage: ['es', 'en'],
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${siteUrl}/blog/?search={search_term_string}`
-      },
-      'query-input': 'required name=search_term_string'
-    }
+    inLanguage: ['es', 'en']
   };
 }
 

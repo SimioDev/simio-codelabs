@@ -1,28 +1,26 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { BentoGrid, BentoItem } from '@/components/ui/BentoGrid';
 import { MorphingBlob } from '@/components/ui/MorphingBlob';
 import { CustomCursor } from '@/components/ui/CustomCursor';
 import FAQSection from '@/components/sections/FAQSection';
-import { Settings, ShoppingCart, Database, Rocket } from 'lucide-react';
 
 const title = 'Desarrollo de Software a Medida en Colombia | Simio CodeLabs';
 const description = 'Software que funciona. Automatización, e-commerce y sistemas a medida. 5+ años resolviendo problemas reales.';
-
-const blogPosts = await getCollection('blog', ({ data }) => {
-  return data.lang === 'es' && !data.draft;
-});
 
 const portfolioItems = await getCollection('portfolio', ({ data }) => {
   return data.lang === 'es';
 });
 
-const recentPosts = blogPosts
-  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-  .slice(0, 3);
+const projectItems = await getCollection('projects', ({ data }) => {
+  return data.lang === 'es' && data.featured;
+});
 
 const featuredProjects = portfolioItems.slice(0, 3);
+
+const featuredProjectsList = projectItems
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 4);
 
 const faqs = [
   {
@@ -61,14 +59,6 @@ const faqs = [
 
       <div class="relative z-10 mx-auto max-w-7xl w-full">
         <div class="space-y-12 max-w-3xl">
-          <div class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary backdrop-blur-sm animate-clip-reveal">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            Disponible para nuevos proyectos
-          </div>
-
           <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[1.1]">
             <span class="block text-foreground">Desarrollo de Software a Medida</span>
             <span class="block bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">
@@ -128,80 +118,79 @@ const faqs = [
           </p>
         </div>
 
-        <BentoGrid client:visible>
-          <BentoItem client:visible delay={0} span="double">
-            <div class="h-full flex flex-col justify-between">
-              <div>
-                <div class="mb-4">
-                  <Settings className="w-12 h-12 text-primary" strokeWidth={1.5} />
-                </div>
-                <h3 class="text-3xl font-bold mb-4">Automatización Inteligente</h3>
-                <p class="text-muted-foreground text-lg">
-                  Elimina tareas repetitivas y libera tiempo de tu equipo para actividades estratégicas de alto valor.
-                </p>
-              </div>
-              <div class="flex flex-wrap gap-2 mt-6">
-                {['Python', 'Node.js', 'APIs'].map((tech) => (
-                  <span class="inline-flex items-center rounded-lg bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-                    {tech}
-                  </span>
-                ))}
-              </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="group rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg">
+            <div class="mb-4 text-primary">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
             </div>
-          </BentoItem>
+            <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+              Automatización Inteligente
+            </h3>
+            <p class="text-muted-foreground text-sm leading-relaxed mb-4">
+              Elimina tareas repetitivas y libera tiempo de tu equipo para actividades estratégicas de alto valor.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="inline-flex items-center rounded-md bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">Python</span>
+              <span class="inline-flex items-center rounded-md bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">Node.js</span>
+              <span class="inline-flex items-center rounded-md bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">APIs</span>
+            </div>
+          </div>
 
-          <BentoItem client:visible delay={0.1}>
-            <div class="h-full flex flex-col justify-between">
-              <div>
-                <div class="mb-4">
-                  <ShoppingCart className="w-10 h-10 text-primary" strokeWidth={1.5} />
-                </div>
-                <h3 class="text-2xl font-bold mb-3">Tiendas Online</h3>
-                <p class="text-muted-foreground">
-                  E-commerce optimizado para máxima conversión
-                </p>
-              </div>
+          <div class="group rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg">
+            <div class="mb-4 text-primary">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
             </div>
-          </BentoItem>
+            <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+              Tiendas Online
+            </h3>
+            <p class="text-muted-foreground text-sm leading-relaxed">
+              E-commerce optimizado para máxima conversión. Desde catálogos simples hasta plataformas complejas con inventario, pagos y envíos.
+            </p>
+          </div>
 
-          <BentoItem client:visible delay={0.2}>
-            <div class="h-full flex flex-col justify-between">
-              <div>
-                <div class="mb-4">
-                  <Database className="w-10 h-10 text-primary" strokeWidth={1.5} />
-                </div>
-                <h3 class="text-2xl font-bold mb-3">Software de Gestión</h3>
-                <p class="text-muted-foreground">
-                  ERPs y CRMs adaptados a tu flujo de trabajo
-                </p>
-              </div>
+          <div class="group rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg">
+            <div class="mb-4 text-primary">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+              </svg>
             </div>
-          </BentoItem>
+            <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+              Software de Gestión
+            </h3>
+            <p class="text-muted-foreground text-sm leading-relaxed">
+              ERPs y CRMs adaptados a tu flujo de trabajo. Gestiona clientes, inventarios, ventas y finanzas en un solo lugar.
+            </p>
+          </div>
 
-          <BentoItem client:visible delay={0.3} span="double">
-            <div class="h-full flex flex-col justify-between">
-              <div>
-                <div class="mb-4">
-                  <Rocket className="w-12 h-12 text-primary" strokeWidth={1.5} />
-                </div>
-                <h3 class="text-3xl font-bold mb-4">Landing Pages de Alta Conversión</h3>
-                <p class="text-muted-foreground text-lg">
-                  Páginas diseñadas específicamente para convertir visitantes en clientes. Diseño persuasivo y analítica integrada.
-                </p>
+          <div class="group rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg">
+            <div class="mb-4 text-primary">
+              <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+              Landing Pages de Alta Conversión
+            </h3>
+            <p class="text-muted-foreground text-sm leading-relaxed mb-4">
+              Páginas diseñadas específicamente para convertir visitantes en clientes. Diseño persuasivo y analítica integrada.
+            </p>
+            <div class="flex gap-3 pt-4 border-t border-border">
+              <div class="flex-1 rounded-xl bg-muted p-3">
+                <div class="text-xs text-muted-foreground mb-1">Antes</div>
+                <div class="text-sm font-bold">1.5% conversión</div>
               </div>
-              <div class="flex gap-4 mt-6">
-                <div class="flex-1 rounded-2xl bg-muted p-4">
-                  <div class="text-xs text-muted-foreground mb-1">Antes</div>
-                  <div class="text-lg font-bold">1.5% conversión</div>
-                </div>
-                <div class="flex-1 rounded-2xl bg-primary/10 p-4">
-                  <div class="text-xs text-primary mb-1">Después</div>
-                  <div class="text-lg font-bold text-primary">4.5% conversión</div>
-                </div>
+              <div class="flex-1 rounded-xl bg-primary/10 p-3">
+                <div class="text-xs text-primary mb-1">Después</div>
+                <div class="text-sm font-bold text-primary">4.5% conversión</div>
               </div>
             </div>
-          </BentoItem>
-        </BentoGrid>
+          </div>
+        </div>
 
         <div class="mt-12 text-center">
           <a
@@ -230,39 +219,48 @@ const faqs = [
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredProjects.map((project, index) => (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {featuredProjects.slice(0, 2).map((project) => (
               <a
                 href={`/portafolio/${project.slug.replace(/^(es|en)\//, '')}/`}
-                class="group relative rounded-3xl border border-border bg-card overflow-hidden transition-all hover:border-primary/50 hover:scale-[1.02] hover:shadow-2xl"
+                class="group relative rounded-2xl border border-border bg-card overflow-hidden transition-all hover:border-primary/50 hover:shadow-lg"
                 title={`Ver caso de éxito: ${project.data.title}`}
               >
-                {project.data.image ? (
-                  <div class="aspect-video overflow-hidden bg-muted relative">
+                <div class="aspect-[16/9] overflow-hidden bg-muted relative">
+                  {project.data.image ? (
                     <img
                       src={project.data.image}
                       alt={project.data.title}
-                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                       decoding="async"
                       width="800"
                       height="450"
                     />
-                    <div class="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60"></div>
-                  </div>
-                ) : (
-                  <div class="aspect-video bg-gradient-to-br from-primary/20 to-purple-500/20 group-hover:from-primary/30 group-hover:to-purple-500/30 transition-colors"></div>
-                )}
-                <div class="p-6">
-                  <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
+                  ) : (
+                    <div class="w-full h-full bg-gradient-to-br from-primary/20 to-purple-500/20"></div>
+                  )}
+                  <div class="absolute inset-0 bg-gradient-to-t from-card/90 via-card/20 to-transparent"></div>
+                </div>
+                <div class="p-5">
+                  <h3 class="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
                     {project.data.title}
                   </h3>
-                  <p class="text-sm text-muted-foreground line-clamp-2 mb-4">
+                  <p class="text-muted-foreground text-sm mb-3 leading-relaxed line-clamp-2">
                     {project.data.description}
                   </p>
+                  {project.data.technologies && (
+                    <div class="flex flex-wrap gap-1.5 mb-3">
+                      {project.data.technologies.slice(0, 3).map((tech) => (
+                        <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                   {project.data.metrics && (
-                    <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
-                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
+                      <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                       </svg>
                       {project.data.metrics.improvement}
@@ -270,6 +268,55 @@ const faqs = [
                   )}
                 </div>
               </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {featuredProjectsList.length > 0 && (
+      <section id="proyectos" class="relative px-6 py-32 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-12 md:mb-16">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter mb-4 md:mb-6">
+              Proyectos Destacados
+            </h2>
+            <p class="text-lg md:text-xl text-muted-foreground max-w-2xl">
+              Soluciones innovadoras creadas a medida con enfoque en resultados
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {featuredProjectsList.map((project) => (
+              <article class="group relative rounded-2xl border border-border bg-card overflow-hidden transition-all hover:border-primary/50 hover:shadow-lg">
+                <div class="aspect-[16/9] overflow-hidden bg-muted relative">
+                  <img
+                    src={project.data.image}
+                    alt={project.data.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    decoding="async"
+                    width="800"
+                    height="450"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-card/90 via-card/20 to-transparent"></div>
+                </div>
+                <div class="p-5">
+                  <h3 class="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+                    {project.data.title}
+                  </h3>
+                  <p class="text-muted-foreground text-sm mb-3 leading-relaxed line-clamp-2">
+                    {project.data.description}
+                  </p>
+                  <div class="flex flex-wrap gap-1.5">
+                    {project.data.technologies.slice(0, 3).map((tech) => (
+                      <span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
             ))}
           </div>
         </div>
