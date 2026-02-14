@@ -1,14 +1,16 @@
 ---
 title: MiColegioFacil
-description: Plataforma completa de gestión escolar que centraliza administración académica, comunicación y pagos en un solo sistema
-focus: Digitalización completa de procesos escolares y mejora en comunicación padres-colegio
+description: Plataforma completa de gestión escolar que centraliza
+  administración académica, comunicación y pagos en un solo sistema
+focus: Digitalización completa de procesos escolares y mejora en comunicación
+  padres-colegio
 technologies:
   - Next.js
   - TypeScript
   - Prisma
   - PostgreSQL
   - Stripe
-image: /images/uploads/nosql_icon.webp
+image: /images/uploads/screenshot-from-2026-02-14-13-22-19.png
 url: https://ejemplo.com/micolegiofacil
 featured: true
 order: 4
