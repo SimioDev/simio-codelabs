@@ -5,7 +5,7 @@ import { MorphingBlob } from '@/components/ui/MorphingBlob';
 import { CustomCursor } from '@/components/ui/CustomCursor';
 import FAQSection from '@/components/sections/FAQSection';
 
-const title = 'Desarrollo de Software a Medida en Colombia | Simio CodeLabs';
+const title = 'Desarrollo de Software a Medida en Colombia | Luxury Software';
 const description = 'Software que funciona. Automatización, e-commerce y sistemas a medida. 5+ años resolviendo problemas reales.';
 
 const portfolioItems = await getCollection('portfolio', ({ data }) => {
@@ -60,15 +60,15 @@ const faqs = [
       <div class="relative z-10 mx-auto max-w-7xl w-full">
         <div class="space-y-12 max-w-3xl">
           <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[1.1]">
-            <span class="block text-foreground">Desarrollo de Software a Medida</span>
-            <span class="block bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">
-              Automatización
+            <span class="block text-foreground">Desarrollo de Software</span>
+            <span class="block bg-gradient-to-r from-[#c09431] via-[#d4a950] to-[#c09431] bg-clip-text text-transparent">
+              de Lujo
             </span>
-            <span class="block text-foreground">y Sistemas Web en Colombia</span>
+            <span class="block text-foreground">Exclusivo y Premium</span>
           </h1>
 
           <p class="max-w-2xl text-xl md:text-2xl text-muted-foreground leading-relaxed">
-            Desarrollo software que funciona. Sin plantillas genéricas, sin subscripciones eternas. Solo código que <span class="text-foreground font-semibold">resuelve tu problema específico</span>.
+            Soluciones tecnológicas de élite. Diseño exclusivo, código impecable y resultados <span class="text-primary font-semibold">extraordinarios</span>.
           </p>
 
           <div class="flex flex-col sm:flex-row items-start gap-4">
@@ -288,7 +288,11 @@ const faqs = [
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             {featuredProjectsList.map((project) => (
-              <article class="group relative rounded-2xl border border-border bg-card overflow-hidden transition-all hover:border-primary/50 hover:shadow-lg">
+              <a
+                href={`/proyectos/${project.slug.replace(/^(es|en)\//, '')}/`}
+                class="group relative rounded-2xl border border-border bg-card overflow-hidden transition-all hover:border-primary/50 hover:shadow-lg"
+                title={`Ver proyecto: ${project.data.title}`}
+              >
                 <div class="aspect-[16/9] overflow-hidden bg-muted relative">
                   <img
                     src={project.data.image}
@@ -316,7 +320,7 @@ const faqs = [
                     ))}
                   </div>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
         </div>

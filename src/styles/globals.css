@@ -4,59 +4,60 @@
 
 @layer base {
   :root {
-    /* Light theme - DEFAULT (Clean, Modern, Inspired by top designers) */
+    /* Light theme - LUXURY (White + Dark Gold + Black) */
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 0 0% 5%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 0 0% 5%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 0 0% 5%;
 
-    /* Vibrant indigo primary */
-    --primary: 239 84% 67%;
+    /* Rich Dark Gold primary - #c09431 */
+    --primary: 42 59% 47%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --secondary: 42 10% 95%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 42 8% 96%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 42 59% 47%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 239 84% 67%;
+    --border: 42 12% 88%;
+    --input: 42 12% 90%;
+    --ring: 42 59% 47%;
     --radius: 0.5rem;
   }
 
   .dark {
-    /* Dark theme - Toggle mode */
-    --background: 240 10% 3.9%;
+    /* Dark theme - LUXURY (Black + Rich Gold + White) */
+    --background: 0 0% 5%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
+    --card: 0 0% 8%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
+    --popover: 0 0% 8%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 239 84% 67%;
-    --primary-foreground: 0 0% 98%;
+    /* Rich Dark Gold primary - #c09431 */
+    --primary: 42 59% 47%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 3.7% 15.9%;
+    --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 42 59% 47%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 239 84% 67%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 42 59% 47%;
   }
 
   * {
@@ -79,17 +80,17 @@
     text-wrap: balance;
   }
 
-  /* Gradient mesh effect - unique background */
+  /* Gradient mesh effect - Rich Dark Gold */
   .gradient-mesh {
-    background: linear-gradient(135deg, rgba(129, 140, 248, 0.03) 0%, transparent 50%),
-                linear-gradient(45deg, rgba(167, 139, 250, 0.03) 0%, transparent 50%);
+    background: linear-gradient(135deg, rgba(192, 148, 49, 0.05) 0%, transparent 50%),
+                linear-gradient(45deg, rgba(212, 169, 80, 0.04) 0%, transparent 50%);
     background-size: 100% 100%;
     background-attachment: fixed;
   }
 
   .dark .gradient-mesh {
-    background: linear-gradient(135deg, rgba(129, 140, 248, 0.08) 0%, transparent 50%),
-                linear-gradient(45deg, rgba(167, 139, 250, 0.08) 0%, transparent 50%);
+    background: linear-gradient(135deg, rgba(192, 148, 49, 0.10) 0%, transparent 50%),
+                linear-gradient(45deg, rgba(212, 169, 80, 0.08) 0%, transparent 50%);
   }
 
   /* Morphing shape animation */
@@ -120,7 +121,7 @@
     animation: clip-reveal 1s ease-out forwards;
   }
 
-  /* Bento grid hover effect */
+  /* Bento grid hover effect - Luxury Gold */
   .bento-item {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     background: hsl(var(--card));
@@ -129,18 +130,18 @@
 
   .bento-item:hover {
     transform: translateY(-4px);
-    border-color: hsl(var(--primary) / 0.3);
+    border-color: hsl(var(--primary) / 0.4);
   }
 
-  /* Light mode shadows */
+  /* Light mode shadows - Rich Gold glow */
   .bento-item:hover {
-    box-shadow: 0 20px 25px -5px rgba(129, 140, 248, 0.15),
-                0 10px 10px -5px rgba(129, 140, 248, 0.08);
+    box-shadow: 0 20px 25px -5px rgba(192, 148, 49, 0.25),
+                0 10px 10px -5px rgba(192, 148, 49, 0.15);
   }
 
-  /* Dark mode shadows */
+  /* Dark mode shadows - Intense Rich Gold glow */
   .dark .bento-item:hover {
-    box-shadow: 0 20px 25px -5px rgba(129, 140, 248, 0.3),
-                0 10px 10px -5px rgba(129, 140, 248, 0.15);
+    box-shadow: 0 20px 25px -5px rgba(192, 148, 49, 0.4),
+                0 10px 10px -5px rgba(192, 148, 49, 0.25);
   }
 }

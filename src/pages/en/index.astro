@@ -9,7 +9,7 @@ import { Settings, ShoppingCart, Database, Rocket } from 'lucide-react';
 
 const t = useTranslations('en');
 
-const title = 'Custom Software Development | Simio CodeLabs';
+const title = 'Custom Software Development | Luxury Software';
 const description = 'Custom software development. Process automation, e-commerce, management systems, and landing pages. +5 years of experience, +20 completed projects with measurable results.';
 
 const portfolioItems = await getCollection('portfolio', ({ data }) => {
@@ -75,15 +75,15 @@ const services = [
           </div>
 
           <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[1.1]">
-            <span class="block text-foreground">Custom Software Development</span>
-            <span class="block bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent">
-              Process Automation
+            <span class="block text-foreground">Luxury Software</span>
+            <span class="block bg-gradient-to-r from-[#c09431] via-[#d4a950] to-[#c09431] bg-clip-text text-transparent">
+              Development
             </span>
-            <span class="block text-foreground">and Web Systems</span>
+            <span class="block text-foreground">Exclusive & Premium</span>
           </h1>
 
           <p class="max-w-2xl text-xl md:text-2xl text-muted-foreground leading-relaxed">
-            {t.home.hero.description}
+            Elite technology solutions. Exclusive design, impeccable code, and <span class="text-primary font-semibold">extraordinary</span> results.
           </p>
 
           <div class="flex flex-col sm:flex-row items-start gap-4">
@@ -231,7 +231,11 @@ const services = [
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             {featuredProjectsList.map((project) => (
-              <article class="group relative rounded-2xl border border-border bg-card overflow-hidden transition-all hover:border-primary/50 hover:shadow-lg">
+              <a
+                href={`/en/projects/${project.slug.replace(/^(es|en)\//, '')}/`}
+                class="group relative rounded-2xl border border-border bg-card overflow-hidden transition-all hover:border-primary/50 hover:shadow-lg"
+                title={`View project: ${project.data.title}`}
+              >
                 <div class="aspect-[16/9] overflow-hidden bg-muted relative">
                   <img
                     src={project.data.image}
@@ -259,7 +263,7 @@ const services = [
                     ))}
                   </div>
                 </div>
-              </article>
+              </a>
             ))}
           </div>
         </div>

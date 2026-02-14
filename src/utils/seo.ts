@@ -33,7 +33,7 @@ export function generateSchemaOrg(data: SEOData, siteUrl: string) {
       },
       publisher: {
         '@type': 'Organization',
-        name: 'Simio CodeLabs',
+        name: 'Luxury Software',
         logo: {
           '@type': 'ImageObject',
           url: `${siteUrl}/images/logo.png`,
@@ -49,7 +49,7 @@ export function generateOrganizationSchema(siteUrl: string) {
   return {
     '@context': 'https://schema.org',
     '@type': ['Organization', 'ProfessionalService'],
-    name: 'Simio CodeLabs',
+    name: 'Luxury Software',
     url: siteUrl,
     logo: `${siteUrl}/images/logo.png`,
     description: 'Desarrollo de software a medida para empresas. Automatización de procesos, e-commerce y sistemas de gestión.',
@@ -85,7 +85,7 @@ export function generateWebsiteSchema(siteUrl: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Simio CodeLabs',
+    name: 'Luxury Software',
     url: siteUrl,
     description: 'Desarrollo de software a medida, automatización de procesos y soluciones tecnológicas para empresas.',
     inLanguage: ['es', 'en']
@@ -99,7 +99,7 @@ export function generateServiceSchema(siteUrl: string) {
     serviceType: 'Software Development',
     provider: {
       '@type': 'Organization',
-      name: 'Simio CodeLabs',
+      name: 'Luxury Software',
       url: siteUrl
     },
     areaServed: {
