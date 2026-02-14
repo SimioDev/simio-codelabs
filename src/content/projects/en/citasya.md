@@ -1,13 +1,14 @@
 ---
 title: CitasYa
-description: Comprehensive appointment and online booking management system with automatic notifications and admin panel
+description: Comprehensive appointment and online booking management system with
+  automatic notifications and admin panel
 focus: Booking optimization and no-show reduction through automatic reminders
 technologies:
   - React
   - Node.js
   - PostgreSQL
   - Twilio
-image: /images/uploads/1443413.webp
+image: /images/uploads/screenshot-from-2026-02-14-14-09-23.png
 url: https://example.com/citasya
 featured: true
 order: 3
