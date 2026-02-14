@@ -1,13 +1,15 @@
 ---
 title: CitasYa
-description: Sistema integral de gestión de citas y reservas online con notificaciones automáticas y panel de administración
-focus: Optimización de agendamiento y reducción de ausencias mediante recordatorios automáticos
+description: Sistema integral de gestión de citas y reservas online con
+  notificaciones automáticas y panel de administración
+focus: Optimización de agendamiento y reducción de ausencias mediante
+  recordatorios automáticos
 technologies:
   - React
   - Node.js
   - PostgreSQL
   - Twilio
-image: /images/uploads/1443413.webp
+image: /images/uploads/screenshot-from-2026-02-14-14-09-23.png
 url: https://ejemplo.com/citasya
 featured: true
 order: 3
