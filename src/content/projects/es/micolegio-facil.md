@@ -16,27 +16,26 @@ featured: true
 order: 4
 lang: es
 ---
-
 ## Descripción del Proyecto
 
-Sistema integral de gestión escolar que moderniza la administración educativa mediante automatización y centralización de procesos académicos y administrativos.
+Sistema integral de gestión escolar que moderniza la administración educativa mediante automatización y centralización de procesos académicos y administrativos generales.
 
 ### Características Principales
 
-- **Gestión de estudiantes y profesores** con perfiles completos
-- **Registro de calificaciones** y generación automática de boletines
-- **Control de asistencia** digital con reportes en tiempo real
-- **Portal de padres** con acceso a información académica
-- **Gestión de pagos** con integración a pasarelas de pago
-- **Comunicaciones** mediante notificaciones y mensajería interna
-- **Horarios y calendarios** académicos automatizados
+* **Gestión de estudiantes y profesores** con perfiles completos
+* **Registro de calificaciones** y generación automática de boletines
+* **Control de asistencia** digital con reportes en tiempo real
+* **Portal de padres** con acceso a información académica
+* **Gestión de pagos** con integración a pasarelas de pago
+* **Comunicaciones** mediante notificaciones y mensajería interna
+* **Horarios y calendarios** académicos automatizados
 
 ### Resultados
 
-- 📊 **70% reducción** en tiempo administrativo
-- 💰 **90% digitalización** de pagos de pensiones
-- 📱 **85% participación** de padres en portal web
-- ⏱️ **Ahorro de 15 horas semanales** en tareas manuales
+* 📊 **70% reducción** en tiempo administrativo
+* 💰 **90% digitalización** de pagos de pensiones
+* 📱 **85% participación** de padres en portal web
+* ⏱️ **Ahorro de 15 horas semanales** en tareas manuales
 
 ### Stack Tecnológico
 
