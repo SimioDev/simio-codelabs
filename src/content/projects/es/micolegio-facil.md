@@ -1,7 +1,7 @@
 ---
 title: MiColegioFacil
 description: Plataforma completa de gestión escolar que centraliza
-  administración académica, comunicación y pagos en un solo sistema
+  administración académica, comunicación y pagos en un solo sistema.
 focus: Digitalización completa de procesos escolares y mejora en comunicación
   padres-colegio
 technologies:
